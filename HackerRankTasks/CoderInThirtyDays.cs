@@ -143,6 +143,7 @@ namespace HackerRankTasks
         #endregion
 
         #region LetsReview
+        //https://www.hackerrank.com/challenges/30-review-loop/problem
         public string RegroupStringByEvenAndOddCharacters(string input)
         {
             string result = "";
