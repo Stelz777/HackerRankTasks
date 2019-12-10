@@ -6,6 +6,37 @@ namespace HackerRankTasks
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            Run2DArrayDS();
+
+            RunArrayManipulation();
+
+            RunArraysLeftRotation();
+
+            RunMinimumSwaps2();
+
+            RunNewYearChaos();
+
+            RunCountingValleys();
+
+            RunJumpingOnTheClouds();
+
+            RunRepeatedString();
+
+            RunClassVsInstance();
+
+            RunDataTypes();
+
+            RunIntroToConditionalStatements();
+
+            RunLoops();
+
+            RunOperators();
+
+            RunLetsReview();
+        }
+
         static void Run2DArrayDS()
         {
             var numberArray = new int[6][];
@@ -191,37 +222,6 @@ namespace HackerRankTasks
                 var resultString = coderInThirtyDays.RegroupStringByEvenAndOddCharacters(reviewInput);
                 Console.WriteLine(resultString);
             }
-        }
-
-        static void Main(string[] args)
-        {
-            Run2DArrayDS();
-
-            RunArrayManipulation();
-
-            RunArraysLeftRotation();
-
-            RunMinimumSwaps2();
-
-            RunNewYearChaos();
-
-            RunCountingValleys();
-
-            RunJumpingOnTheClouds();
-
-            RunRepeatedString();
-
-            RunClassVsInstance();
-
-            RunDataTypes();
-
-            RunIntroToConditionalStatements();
-
-            RunLoops();
-
-            RunOperators();
-
-            RunLetsReview();
         }
     }
 }
