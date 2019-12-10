@@ -8,14 +8,14 @@ namespace XUnitTestHackerRank
         [Fact]
         public void CasualHourglassSumTest()
         {
-            int[][] array = new int[6][];
+            var array = new int[6][];
             array[0] = new int[] { 1, 1, 1, 0, 0, 0 };
             array[1] = new int[] { 0, 1, 0, 0, 0, 0 };
             array[2] = new int[] { 1, 1, 1, 0, 0, 0 };
             array[3] = new int[] { 0, 0, 2, 4, 4, 0 };
             array[4] = new int[] { 0, 0, 0, 2, 0, 0 };
             array[5] = new int[] { 0, 0, 1, 2, 4, 0 };
-            int expectedResult = 19;
+            var expectedResult = 19;
             var arrayWorker = new HackerRankTasks.ArrayWorker();
             int result = arrayWorker.CalculateHourglassSum(array);
             Assert.Equal(expectedResult, result);
@@ -26,14 +26,14 @@ namespace XUnitTestHackerRank
             [Fact]
             public void CasualArrayManipulationTest()
             {
-                int zerosAmount = 5;
-                int[][] queries = new int[][]
+                var zerosAmount = 5;
+                var queries = new int[][]
                 {
                 new int[] { 1, 2, 100 },
                 new int[] { 2, 5, 100 },
                 new int[] { 3, 4, 100 }
                 };
-                long expectedResult = 200;
+                var expectedResult = 200L;
                 TestEquality(zerosAmount, queries, expectedResult);
             }
 
@@ -131,39 +131,39 @@ namespace XUnitTestHackerRank
             [Fact]
             public void TestNineSocksThreeColors()
             {
-                int socksAmount = 9;
-                int[] socks = new int[9] { 10, 20, 20, 10, 10, 30, 50, 10, 20 };
-                int expectedResult = 3;
+                var socksAmount = 9;
+                var socks = new int[9] { 10, 20, 20, 10, 10, 30, 50, 10, 20 };
+                var expectedResult = 3;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
             [Fact]
             public void TestTenSocksThreeColors()
             {
-                int socksAmount = 10;
-                int[] socks = new int[10] { 1, 1, 3, 1, 2, 1, 3, 3, 3, 3 };
-                int expectedResult = 4;
+                var socksAmount = 10;
+                var socks = new int[10] { 1, 1, 3, 1, 2, 1, 3, 3, 3, 3 };
+                var expectedResult = 4;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
             [Fact]
             public void TestHundredSocksOneColor()
             {
-                int socksAmount = 100;
-                int[] socks = new int[100];
-                for (int i = 0; i < socksAmount; i++)
+                var socksAmount = 100;
+                var socks = new int[100];
+                for (var i = 0; i < socksAmount; i++)
                 {
                     socks[i] = 42;
                 }
-                int expectedResult = 50;
+                var expectedResult = 50;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
             [Fact]
             public void TestHundredSocksTwentyEightPairs()
             {
-                int socksAmount = 100;
-                int[] socks = new int[100]
+                var socksAmount = 100;
+                var socks = new int[100]
                 {
                 50, 49, 38, 49, 78, 36, 25, 96, 10, 67, 78,
                 58, 98,  8, 53,  1,  4,  7, 29,  6, 59, 93,
@@ -175,33 +175,33 @@ namespace XUnitTestHackerRank
                 19, 16, 64, 23, 77,  7, 19, 11,  5, 81, 43,
                 14, 27, 11, 63, 57, 62,  3, 56, 50, 9, 13, 45
                 };
-                int expectedResult = 28;
+                var expectedResult = 28;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
             [Fact]
             public void TestThreeSocksThreeColors()
             {
-                int socksAmount = 3;
-                int[] socks = new int[3] { 10, 20, 30 };
-                int expectedResult = 0;
+                var socksAmount = 3;
+                var socks = new int[3] { 10, 20, 30 };
+                var expectedResult = 0;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
             [Fact]
             public void TestOneSockOneColor()
             {
-                int socksAmount = 1;
-                int[] socks = new int[1] { 100 };
-                int expectedResult = 0;
+                var socksAmount = 1;
+                var socks = new int[1] { 100 };
+                var expectedResult = 0;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
             [Fact]
             public void TestHundredSocksThirtyPairs()
             {
-                int socksAmount = 100;
-                int[] socks = new int[100]
+                var socksAmount = 100;
+                var socks = new int[100]
                 {
                 44, 55, 11, 15,  4, 72, 26, 91, 80, 14,
                 43, 78, 70, 75, 36, 83, 78, 91, 17, 17,
@@ -214,7 +214,7 @@ namespace XUnitTestHackerRank
                 43, 15, 86,  5, 35, 63, 24, 53, 27, 87,
                 45, 38, 34,  7, 48, 24, 100, 14, 80, 54
                 };
-                int expectedResult = 30;
+                var expectedResult = 30;
                 TestEquality(socksAmount, socks, expectedResult);
 
             }
@@ -222,21 +222,21 @@ namespace XUnitTestHackerRank
             [Fact]
             public void TestTwentySocksFiveColors()
             {
-                int socksAmount = 20;
-                int[] socks = new int[20]
+                var socksAmount = 20;
+                var socks = new int[20]
                 {
                 4, 5, 5, 5, 6, 6, 4, 1, 4, 4, 3, 6, 6, 3, 6, 1, 4, 5, 5, 5
                 };
-                int expectedResult = 9;
+                var expectedResult = 9;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
             [Fact]
             public void TestFifteenSocksFiveColors()
             {
-                int socksAmount = 15;
-                int[] socks = new int[15] { 6, 5, 2, 3, 5, 2, 2, 1, 1, 5, 1, 3, 3, 3, 5 };
-                int expectedResult = 6;
+                var socksAmount = 15;
+                var socks = new int[15] { 6, 5, 2, 3, 5, 2, 2, 1, 1, 5, 1, 3, 3, 3, 5 };
+                var expectedResult = 6;
                 TestEquality(socksAmount, socks, expectedResult);
             }
 
@@ -288,8 +288,8 @@ namespace XUnitTestHackerRank
             [InlineData(18, "You are old.")]
             public void AmIOldTheory(int age, string expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(age);
-                string result = coderInThirtyDays.CalculateAge(age);
+                var person = new HackerRankTasks._30_Days_of_Code.Person(age);
+                string result = person.CalculateAge(age);
                 Assert.Equal(expectedResult, result);
             }
         }
@@ -301,7 +301,7 @@ namespace XUnitTestHackerRank
             [InlineData(3, 7)]
             public void SumIntegersTheory(int secondInteger, int expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(1);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
                 int result = coderInThirtyDays.SumIntegers(secondInteger);
                 Assert.Equal(expectedResult, result);
 
@@ -312,7 +312,7 @@ namespace XUnitTestHackerRank
             [InlineData(2.8, "6,8")]
             public void SumDoublesTheory(double secondDouble, string expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(1);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
                 string result = coderInThirtyDays.SumDoubles(secondDouble);
                 Assert.Equal(expectedResult, result);
             }
@@ -322,7 +322,7 @@ namespace XUnitTestHackerRank
             [InlineData("is my favorite platform!", "HackerRank is my favorite platform!")]
             public void ConcatenateStringsTheory(string secondString, string expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(1);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
                 string result = coderInThirtyDays.ConcatenateString(secondString);
                 Assert.Equal(expectedResult, result);
             }
@@ -337,7 +337,7 @@ namespace XUnitTestHackerRank
             [InlineData(24, "Not Weird")]
             public void TestTheory(int number, string expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(3);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
                 string result = coderInThirtyDays.CalculateWeirdness(number);
                 Assert.Equal(expectedResult, result);
             }
@@ -350,8 +350,8 @@ namespace XUnitTestHackerRank
             [InlineData(2, 10, "2 x 10 = 20")]
             public void GetMultipleTheory(int number, int currentIndex, string expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(5);
-                string result = coderInThirtyDays.GetMultiple(number, currentIndex);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                string result = coderInThirtyDays.GetMultipleExpression(number, currentIndex);
                 Assert.Equal(expectedResult, result);
             }
         }
@@ -362,7 +362,7 @@ namespace XUnitTestHackerRank
             [InlineData(12.00, 20, 8, "15")]
             public void SolveTheory(double mealCost, int tipPercent, int taxPercent, string expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(2);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
                 string result = coderInThirtyDays.CalculateTotalCost(mealCost, tipPercent, taxPercent);
                 Assert.Equal(expectedResult, result);
             }
@@ -375,7 +375,7 @@ namespace XUnitTestHackerRank
             [InlineData("Rank", "Rn ak")]
             public void RegroupStringByEvenAndOddCharactersTheory(string input, string expectedResult)
             {
-                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays(6);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
                 string result = coderInThirtyDays.RegroupStringByEvenAndOddCharacters(input);
                 Assert.Equal(expectedResult, result);
             }

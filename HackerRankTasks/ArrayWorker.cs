@@ -11,18 +11,18 @@ namespace HackerRankTasks
         //https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         public int CalculateHourglassSum(int[][] numberArray)
         {
-            int result = 0;
-            List<int> sums = new List<int>();
-            for (int i = 0; i < numberArray.GetLength(0) - 2; i++)
+            var sums = new List<int>();
+            for (var i = 0; i < numberArray.Length - 2; i++)
             {
-                for (int j = 0; j < numberArray[i].Length - 2; j++)
+                for (var j = 0; j < numberArray[i].Length - 2; j++)
                 {
-                    int sum = numberArray[i][j] + numberArray[i][j + 1] + numberArray[i][j + 2] + numberArray[i + 1][j + 1] + numberArray[i + 2][j] + numberArray[i + 2][j + 1] + numberArray[i + 2][j + 2];
+                    int sum = numberArray[i][j] + numberArray[i][j + 1] + numberArray[i][j + 2] 
+                                                + numberArray[i + 1][j + 1] 
+                        + numberArray[i + 2][j] + numberArray[i + 2][j + 1] + numberArray[i + 2][j + 2];
                     sums.Add(sum);
                 }
             }
-            result = sums.Max();
-            return result;
+            return sums.Max();
         }
         #endregion
 
@@ -30,10 +30,10 @@ namespace HackerRankTasks
         //https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         public int[] InitializeDifferences(int[] array, int[] differences)
         {
-            int arrayLength = array.Length;
+            var arrayLength = array.Length;
             differences[0] = array[0];
             differences[arrayLength] = 0;
-            for (int i = 1; i < arrayLength; i++)
+            for (var i = 1; i < arrayLength; i++)
             {
                 differences[i] = array[i] - array[i - 1];
             }
@@ -49,14 +49,14 @@ namespace HackerRankTasks
 
         public long FindMaxDifference(int arrayLength, int[][] queries)
         {
-            int[] array = new int[arrayLength];
-            for (int i = 0; i < arrayLength; i++)
+            var array = new int[arrayLength];
+            for (var i = 0; i < arrayLength; i++)
             {
                 array[i] = 0;
             }
-            int[] differences = new int[arrayLength + 1];
+            var differences = new int[arrayLength + 1];
             differences = InitializeDifferences(array, differences);
-            for (int i = 0; i < queries.GetLength(0); i++)
+            for (var i = 0; i < queries.GetLength(0); i++)
             {
                 differences = UpdateDifferences(differences, queries[i][0], queries[i][1], queries[i][2]);
             }
@@ -69,8 +69,8 @@ namespace HackerRankTasks
         public int[] RotateLeft(int[] array, int offset)
         {
 
-            int[] result = new int[array.Length];
-            for (int i = 0; i < array.Length; i++)
+            var result = new int[array.Length];
+            for (var i = 0; i < array.Length; i++)
             {
                 if (i - offset >= 0)
                 {
@@ -90,8 +90,8 @@ namespace HackerRankTasks
         //https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         public int CalculateMinimumSwaps(int[] numberArray)
         {
-            int result = 0;
-            int i = 0;
+            var result = 0;
+            var i = 0;
             while (i < numberArray.Length - 1)
             {
                 if (numberArray[i] != i + 1)
@@ -114,15 +114,15 @@ namespace HackerRankTasks
         //https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         public string CalculateMinimumBribes(int[] queue)
         {
-            int score = 0;
-            for (int i = queue.Length - 1; i >= 0; i--)
+            var score = 0;
+            for (var i = queue.Length - 1; i >= 0; i--)
             {
                 if (queue[i] - (i + 1) > 2)
                 {
                     return "Too chaotic";
 
                 }
-                for (int j = Math.Max(0, queue[i] - 2); j < i; j++)
+                for (var j = Math.Max(0, queue[i] - 2); j < i; j++)
                 {
                     if (queue[j] > queue[i])
                     {

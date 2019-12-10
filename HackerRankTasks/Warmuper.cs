@@ -10,18 +10,17 @@ namespace HackerRankTasks
         //https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
         public int CountValleys(int arrayLength, string path)
         {
-            int result = 0;
-
-            int currentLevel = 0;
-            int seaLevel = 0;
-            int previousLevel = 0;
+            var result = 0;
+            var currentLevel = 0;
+            var seaLevel = 0;
+            var previousLevel = 0;
             foreach (var character in path)
             {
-                if (character.ToString().Equals("U"))
+                if (character == 'U')
                 {
                     currentLevel++;
                 }
-                if (character.ToString().Equals("D"))
+                if (character == 'D')
                 {
                     currentLevel--;
                     if (currentLevel < seaLevel && previousLevel >= seaLevel)
@@ -41,8 +40,8 @@ namespace HackerRankTasks
         //https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
         public int FindMinJumpsOnClouds(int[] clouds)
         {
-            int result = 0;
-            for (int i = 0; i < clouds.Length - 1; i++)
+            var result = 0;
+            for (var i = 0; i < clouds.Length - 1; i++)
             {
                 if (i + 2 < clouds.Length && clouds[i + 2] == 0)
                 {
@@ -61,12 +60,12 @@ namespace HackerRankTasks
 
         #region RepeatedString
         //https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-        public long CountLetterInString(string inputString, string letter)
+        public long CountLetterInString(string inputString, char letter)
         {
-            long counter = 0L;
+            var counter = 0L;
             foreach (var character in inputString)
             {
-                if (character.ToString().Equals(letter))
+                if (character == letter)
                 {
                     counter++;
                 }
@@ -76,12 +75,12 @@ namespace HackerRankTasks
 
         public long CountLetterA(string inputString, long symbolsAmount)
         {
-            long result = 0L;
-            long lettersInNormalString = CountLetterInString(inputString, "a");
+            var result = 0L;
+            long lettersInNormalString = CountLetterInString(inputString, 'a');
             long divisionResult = symbolsAmount / inputString.Length;
-            int modResult = Convert.ToInt32(symbolsAmount % inputString.Length);
+            var modResult = Convert.ToInt32(symbolsAmount % inputString.Length);
             string modString = inputString.Substring(0, modResult);
-            long lettersInSubstring = CountLetterInString(modString, "a");
+            long lettersInSubstring = CountLetterInString(modString, 'a');
             result = lettersInNormalString * divisionResult + lettersInSubstring;
             return result;
 
@@ -94,7 +93,7 @@ namespace HackerRankTasks
         {
             var result = 0;
             var socksByColor = new Dictionary<int, int>();
-            for (int i = 0; i < socks.Length; i++)
+            for (var i = 0; i < socks.Length; i++)
             {
                 if (socksByColor.ContainsKey(socks[i]))
                 {
