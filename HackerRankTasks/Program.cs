@@ -35,6 +35,18 @@ namespace HackerRankTasks
             RunOperators();
 
             RunLetsReview();
+
+            RunArrays();
+        }
+
+        static void RunArrays()
+        {
+            var arrayLength = Convert.ToInt32(Console.ReadLine());
+
+            int[] numberArray = Array.ConvertAll(Console.ReadLine().Split(' '), tempArray => Convert.ToInt32(tempArray));
+
+            var coderInThirtyDays = new CoderInThirtyDays();
+            Console.WriteLine(coderInThirtyDays.ReverseArray(numberArray));
         }
 
         static void Run2DArrayDS()

@@ -101,6 +101,16 @@ namespace HackerRankTasks
             return stringBuilder.ToString();
         }
         #endregion
+
+        #region Arrays
+        //https://www.hackerrank.com/challenges/30-arrays/problem
+        public string ReverseArray(int[] input)
+        {
+            int[] temp = input;
+            Array.Reverse(temp);
+            return string.Join(' ', temp);
+        }
+        #endregion
     }
 }
 

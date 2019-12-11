@@ -382,5 +382,17 @@ namespace XUnitTestHackerRank
 
         }
 
+        public class UnityTestArrays
+        {
+            [Theory]
+            [InlineData(new int[] { 1, 4, 3, 2 }, "2 3 4 1")]
+            public void ReverseArrayTheory(int[] input, string expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                string result = coderInThirtyDays.ReverseArray(input);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
     }
 }
