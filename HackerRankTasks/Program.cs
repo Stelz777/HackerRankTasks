@@ -39,6 +39,21 @@ namespace HackerRankTasks
             RunArrays();
 
             RunHashTablesRansomNote();
+
+            RunBubbleSort();
+        }
+
+        static void RunBubbleSort()
+        {
+            var arrayLength = Convert.ToInt32(Console.ReadLine());
+
+            int[] numberArray = Array.ConvertAll(Console.ReadLine().Split(' '), tempArray => Convert.ToInt32(tempArray));
+            var sorter = new Sorter();
+            string[] result = sorter.CountSwaps(numberArray);
+            foreach (var row in result)
+            {
+                Console.WriteLine(row);
+            }
         }
 
         static void RunHashTablesRansomNote()

@@ -408,6 +408,17 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBubbleSort
+        {
+            [Theory]
+            [InlineData(new int[] { 1, 2, 3 }, new string[] { "Array is sorted in 0 swaps.", "First Element: 1", "Last Element: 3" })]
+            public void CountSwapsTheory(int[] input, string[] expectedResult)
+            {
+                var sorter = new HackerRankTasks.Sorter();
+                string[] result = sorter.CountSwaps(input);
+                Assert.Equal(expectedResult, result);
+            }
+        }
 
     }
 }
