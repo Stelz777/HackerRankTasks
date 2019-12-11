@@ -37,6 +37,24 @@ namespace HackerRankTasks
             RunLetsReview();
 
             RunArrays();
+
+            RunHashTablesRansomNote();
+        }
+
+        static void RunHashTablesRansomNote()
+        {
+            string[] input = Console.ReadLine().Split(' ');
+
+            var magazineLength = Convert.ToInt32(input[0]);
+
+            var noteLength = Convert.ToInt32(input[1]);
+
+            string[] magazine = Console.ReadLine().Split(' ');
+
+            string[] note = Console.ReadLine().Split(' ');
+
+            var dictionaryWorker = new DictionaryWorker();
+            Console.WriteLine(dictionaryWorker.CheckMagazine(magazine, note));
         }
 
         static void RunArrays()

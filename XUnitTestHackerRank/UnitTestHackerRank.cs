@@ -382,7 +382,7 @@ namespace XUnitTestHackerRank
 
         }
 
-        public class UnityTestArrays
+        public class UnitTestArrays
         {
             [Theory]
             [InlineData(new int[] { 1, 4, 3, 2 }, "2 3 4 1")]
@@ -393,6 +393,21 @@ namespace XUnitTestHackerRank
                 Assert.Equal(expectedResult, result);
             }
         }
+
+        public class UnitTestHashTablesRansomNote
+        {
+            [Theory]
+            [InlineData(new string[] { "two", "times", "three", "is", "not", "four" }, new string[] { "two, times, two, is, four" }, "No")]
+            [InlineData(new string[] { "ive", "got", "a", "lovely", "bunch", "of", "coconuts" }, new string[] { "ive", "got", "some", "coconuts" }, "No")]
+            [InlineData(new string[] { "o", "l", "x", "imjaw", "bee", "khmla", "v", "o", "v", "o", "imjaw", "l", "khmla", "imjaw", "x" }, new string[] { "imjaw", "l", "khmla", "x", "imjaw", "o", "l", "l", "o", "khmla", "v", "bee", "o", "o", "imjaw", "imjaw", "o" }, "No")]
+            public void CheckMagazineTheory(string[] magazine, string[] note, string expectedResult)
+            {
+                var dictionaryWorker = new HackerRankTasks.DictionaryWorker();
+                string result = dictionaryWorker.CheckMagazine(magazine, note);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
 
     }
 }
