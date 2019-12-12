@@ -111,6 +111,32 @@ namespace HackerRankTasks
             return string.Join(' ', temp);
         }
         #endregion
+
+        #region DictionariesAndMaps
+        //https://www.hackerrank.com/challenges/30-dictionaries-and-maps/problem
+        public Dictionary<string, string> GeneratePhoneBook(string[] input)
+        {
+            var result = new Dictionary<string, string>();
+            foreach (var record in input)
+            {
+                string[] splitRecord = record.Split(' ');
+                result.Add(splitRecord[0], splitRecord[1]);
+            }
+            return result;
+        }
+
+        public string FindNumberInPhoneBook(Dictionary<string, string> phoneBook, string name)
+        {
+            if (phoneBook.ContainsKey(name))
+            {
+                return $"{ name }={ phoneBook[name] }";
+            }
+            else
+            {
+                return "Not found";
+            }
+        }
+        #endregion
     }
 }
 

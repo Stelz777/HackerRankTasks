@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace XUnitTestHackerRank
@@ -416,6 +417,26 @@ namespace XUnitTestHackerRank
             {
                 var sorter = new HackerRankTasks.Sorter();
                 string[] result = sorter.CountSwaps(input);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestDictionariesAndMaps
+        {
+            [Theory]
+            [InlineData("sam", "sam=99912222")]
+            [InlineData("edward", "Not found")]
+            [InlineData("harry", "harry=12299933")]
+            public void FindNumberInPhoneBookTheory(string name, string expectedResult)
+            {
+                var phoneBook = new Dictionary<string, string>
+                {
+                    { "sam", "99912222" },
+                    { "tom", "11122222" },
+                    { "harry", "12299933" }
+                };
+                var coderInThiryDays = new HackerRankTasks.CoderInThirtyDays();
+                string result = coderInThiryDays.FindNumberInPhoneBook(phoneBook, name);
                 Assert.Equal(expectedResult, result);
             }
         }

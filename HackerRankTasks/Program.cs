@@ -41,6 +41,32 @@ namespace HackerRankTasks
             RunHashTablesRansomNote();
 
             RunBubbleSort();
+
+            RunDictionariesAndMaps();
+        }
+
+        static void RunDictionariesAndMaps()
+        {
+            var entriesLength = Convert.ToInt32(Console.ReadLine());
+            string[] input = new string[entriesLength];
+            for (int i = 0; i < entriesLength; i++)
+            {
+                input[i] = Console.ReadLine();
+            }
+            var coderInThiryDays = new CoderInThirtyDays();
+            Dictionary<string, string> phoneBook = coderInThiryDays.GeneratePhoneBook(input);
+            string name;
+            List<string> names = new List<string>();
+            while ((name = Console.ReadLine()) != null)
+            {
+                names.Add(name);
+            }
+            foreach (var nameElement in names)
+            {
+                string result = coderInThiryDays.FindNumberInPhoneBook(phoneBook, nameElement);
+                Console.WriteLine(result);
+            }
+            
         }
 
         static void RunBubbleSort()
