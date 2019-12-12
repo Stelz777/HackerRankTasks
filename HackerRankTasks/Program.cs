@@ -43,6 +43,19 @@ namespace HackerRankTasks
             RunBubbleSort();
 
             RunDictionariesAndMaps();
+
+            RunMakingAnagrams();
+        }
+
+        static void RunMakingAnagrams()
+        {
+            var firstString = Console.ReadLine();
+
+            var secondString = Console.ReadLine();
+            var stringManipulator = new StringManipulator();
+            int result = stringManipulator.CountDeletionsToMakeAnagram(firstString, secondString);
+
+            Console.WriteLine(result);   
         }
 
         static void RunDictionariesAndMaps()

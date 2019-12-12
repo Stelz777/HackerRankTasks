@@ -441,5 +441,17 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestMakingAnagrams
+        {
+            [Theory]
+            [InlineData("cde", "abc", 4)]
+            [InlineData("fcrxzwscanmligyxyvym", "jxwtrhvujlmrpdoqbisbwhmgpmeoke", 30)]
+            public void CountDeletionsToMakeAnagramTheory(string firstString, string secondString, int expectedResult)
+            {
+                var stringManipulator = new HackerRankTasks.StringManipulator();
+                int result = stringManipulator.CountDeletionsToMakeAnagram(firstString, secondString);
+                Assert.Equal(expectedResult, result);
+            }
+        }
     }
 }
