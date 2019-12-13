@@ -137,6 +137,20 @@ namespace HackerRankTasks
             }
         }
         #endregion
+
+        #region Recursion3
+        public int CalculateFactorial(int number)
+        {
+            if (number <= 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return number * CalculateFactorial(number - 1);
+            }
+        }
+        #endregion
     }
 }
 

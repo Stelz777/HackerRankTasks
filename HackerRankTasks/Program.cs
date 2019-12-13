@@ -45,6 +45,17 @@ namespace HackerRankTasks
             RunDictionariesAndMaps();
 
             RunMakingAnagrams();
+
+            RunRecursion3();
+        }
+
+        static void RunRecursion3()
+        {
+            var number = Convert.ToInt32(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            int result = coderInThirtyDays.CalculateFactorial(number);
+
+            Console.WriteLine(result);
         }
 
         static void RunMakingAnagrams()
@@ -66,8 +77,8 @@ namespace HackerRankTasks
             {
                 input[i] = Console.ReadLine();
             }
-            var coderInThiryDays = new CoderInThirtyDays();
-            Dictionary<string, string> phoneBook = coderInThiryDays.GeneratePhoneBook(input);
+            var coderInThirtyDays = new CoderInThirtyDays();
+            Dictionary<string, string> phoneBook = coderInThirtyDays.GeneratePhoneBook(input);
             string name;
             var names = new List<string>();
             while ((name = Console.ReadLine()) != null)
@@ -76,7 +87,7 @@ namespace HackerRankTasks
             }
             foreach (var nameElement in names)
             {
-                string result = coderInThiryDays.FindNumberInPhoneBook(phoneBook, nameElement);
+                string result = coderInThirtyDays.FindNumberInPhoneBook(phoneBook, nameElement);
                 Console.WriteLine(result);
             }
             

@@ -453,5 +453,18 @@ namespace XUnitTestHackerRank
                 Assert.Equal(expectedResult, result);
             }
         }
+
+        public class UnitTestRecursion3
+        {
+            [Theory]
+            [InlineData(3, 6)]
+            public void CalculateFactorialTheory(int number, int expectedResult)
+            {
+                var coderInThiryDays = new HackerRankTasks.CoderInThirtyDays();
+                int result = coderInThiryDays.CalculateFactorial(number);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
     }
 }
