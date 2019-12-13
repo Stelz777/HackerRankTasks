@@ -49,6 +49,30 @@ namespace HackerRankTasks
             RunRecursion3();
 
             RunMinimumAbsoluteDifferenceInAnArray();
+
+            RunHashTablesIceCreamParlor();
+        }
+
+        static void RunHashTablesIceCreamParlor()
+        {
+            List<string> results = new List<string>();
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+
+            for (var i = 0; i < testsAmount; i++)
+            {
+                var money = Convert.ToInt32(Console.ReadLine());
+
+                var arrayLength = Convert.ToInt32(Console.ReadLine());
+
+                int[] cost = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), costTemp => Convert.ToInt32(costTemp));
+                var searcher = new Searcher();
+                string result = searcher.WhatFlavors(cost, money);
+                results.Add(result);
+            }
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
         }
 
         static void RunMinimumAbsoluteDifferenceInAnArray()

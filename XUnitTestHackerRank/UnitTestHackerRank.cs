@@ -480,6 +480,19 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestHashTablesIceCreamParlor
+        {
+            [Theory]
+            [InlineData(new int[] { 1, 4, 5, 3 ,2 }, 4, "1 4")]
+            [InlineData(new int[] { 2, 2, 4, 3 }, 4, "1 2")]
+            public void WhatFlavorsTheory(int[] cost, int money, string expectedResult)
+            {
+                var searcher = new HackerRankTasks.Searcher();
+                string result = searcher.WhatFlavors(cost, money);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
 
     }
 }
