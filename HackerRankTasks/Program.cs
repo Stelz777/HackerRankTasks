@@ -47,6 +47,19 @@ namespace HackerRankTasks
             RunMakingAnagrams();
 
             RunRecursion3();
+
+            RunMinimumAbsoluteDifferenceInAnArray();
+        }
+
+        static void RunMinimumAbsoluteDifferenceInAnArray()
+        {
+            var arrayLength = Convert.ToInt32(Console.ReadLine());
+
+            int[] input = Array.ConvertAll(Console.ReadLine().Split(' '), tempArray => Convert.ToInt32(tempArray));
+            var greedyWorker = new GreedyWorker();
+            int result = greedyWorker.CalculateMinimumAbsoluteDifference(input);
+
+            Console.WriteLine(result);
         }
 
         static void RunRecursion3()
