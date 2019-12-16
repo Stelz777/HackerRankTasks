@@ -9,6 +9,7 @@ namespace HackerRankTasks
     {
         #region 2DArrayDS
         //https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        //https://www.hackerrank.com/challenges/30-2d-arrays/problem
         public int CalculateHourglassSum(int[][] numberArray)
         {
             var sums = new List<int>();
