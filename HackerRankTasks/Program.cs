@@ -55,6 +55,19 @@ namespace HackerRankTasks
             RunBinaryNumbers();
 
             RunInheritance();
+
+            RunMaxArraySum();
+        }
+
+        static void RunMaxArraySum()
+        {
+            var number = Convert.ToInt32(Console.ReadLine());
+
+            int[] numberArray = Array.ConvertAll(Console.ReadLine().Split(' '), tempArray => Convert.ToInt32(tempArray));
+            var dynamicProgrammer = new DynamicProgrammer();
+            int result = dynamicProgrammer.CalculateMaxSubsetSum(numberArray);
+
+            Console.WriteLine(result);
         }
 
         static void RunInheritance()
