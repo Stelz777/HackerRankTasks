@@ -516,7 +516,18 @@ namespace XUnitTestHackerRank
             }
         }
 
-        
+        public class UnitTestInheritance
+        {
+            [Theory]
+            [InlineData("Heraldo", "Memelli", 8135627, new int[] { 100, 80 }, 'O')]
+            public void CalculateTheory(string firstName, string lastName, int id, int[] scores, char expectedResult)
+            {
+                var student = new HackerRankTasks._30_Days_of_Code.Student(firstName, lastName, id, scores);
+                char result = student.Calculate();
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
 
     }
 }

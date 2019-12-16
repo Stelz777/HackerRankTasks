@@ -157,7 +157,7 @@ namespace HackerRankTasks
 
 
         #region BinaryNumbers
-        https://www.hackerrank.com/challenges/30-binary-numbers/problem
+        //https://www.hackerrank.com/challenges/30-binary-numbers/problem
         public string ConvertToBinary(int number)
         {
             var result = new StringBuilder();

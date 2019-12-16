@@ -53,6 +53,27 @@ namespace HackerRankTasks
             RunHashTablesIceCreamParlor();
 
             RunBinaryNumbers();
+
+            RunInheritance();
+        }
+
+        static void RunInheritance()
+        {
+            string[] inputs = Console.ReadLine().Split();
+            string firstName = inputs[0];
+            string lastName = inputs[1];
+            var id = Convert.ToInt32(inputs[2]);
+            var numScores = Convert.ToInt32(Console.ReadLine());
+            inputs = Console.ReadLine().Split();
+            var scores = new int[numScores];
+            for (var i = 0; i < numScores; i++)
+            {
+                scores[i] = Convert.ToInt32(inputs[i]);
+            }
+
+            var student = new Student(firstName, lastName, id, scores);
+            student.PrintPerson();
+            Console.WriteLine("Grade: " + student.Calculate() + "\n");
         }
 
         static void RunBinaryNumbers()
