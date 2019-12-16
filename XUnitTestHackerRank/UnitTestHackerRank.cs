@@ -493,6 +493,30 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBinaryNumbers
+        {
+            [Theory]
+            [InlineData(5, "101")]
+            [InlineData(13, "1101")]
+            public void ConvertToBinaryTheory(int number, string expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                string result = coderInThirtyDays.ConvertToBinary(number);
+                Assert.Equal(expectedResult, result);
+            }
+
+            [Theory]
+            [InlineData(5, 1)]
+            [InlineData(13, 2)]
+            public void CountConsecutiveOnesTheory(int number, int expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                int result = coderInThirtyDays.CountConsecutiveOnes(number);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        
 
     }
 }

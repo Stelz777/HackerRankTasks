@@ -51,6 +51,15 @@ namespace HackerRankTasks
             RunMinimumAbsoluteDifferenceInAnArray();
 
             RunHashTablesIceCreamParlor();
+
+            RunBinaryNumbers();
+        }
+
+        static void RunBinaryNumbers()
+        {
+            var number = Convert.ToInt32(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            Console.WriteLine(coderInThirtyDays.CountConsecutiveOnes(number));
         }
 
         static void RunHashTablesIceCreamParlor()

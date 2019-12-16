@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HackerRankTasks
 {
     public class CoderInThirtyDays
     {
-        
+
 
 
         #region DataTypes
@@ -26,7 +27,7 @@ namespace HackerRankTasks
 
         public string ConcatenateString(string secondString)
             => $"HackerRank { secondString }";
-        
+
         #endregion
 
         #region IntroToConditionalStatements
@@ -59,7 +60,7 @@ namespace HackerRankTasks
         #region Loops
         //https://www.hackerrank.com/challenges/30-loops/problem
         public string GetMultipleExpression(int number, int currentIndex)
-            => $"{ number } x { currentIndex } = { number * currentIndex }";        
+            => $"{ number } x { currentIndex } = { number * currentIndex }";
 
         public void PrintMultiplies(int number)
         {
@@ -150,6 +151,55 @@ namespace HackerRankTasks
             {
                 return number * CalculateFactorial(number - 1);
             }
+        }
+        #endregion
+
+
+
+        #region BinaryNumbers
+        public string ConvertToBinary(int number)
+        {
+            var result = new StringBuilder();
+            while (number / 2 > 0)
+            {
+                result.Append(number % 2);
+                number /= 2;
+            }
+            result.Append(number % 2);
+            var resultString = result.ToString();
+            int length = resultString.Length - 1;
+            var reversedString = new char[length + 1];
+            resultString.ToCharArray().ToList().ForEach(character =>
+            {
+                reversedString[length] = character;
+                length--;
+            });
+            return new string(reversedString);
+        }
+
+        public int CountConsecutiveOnes(int number)
+        {
+            string binaryNumber = ConvertToBinary(number);
+            var maxConsecutive = 1;
+            var previousNumber = '2';
+            var currentConsecutive = 0;
+            for (var i = 0; i < binaryNumber.Length; i++)
+            {
+                if (binaryNumber[i] != previousNumber)
+                {
+                    currentConsecutive = 1;
+                }
+                else
+                {
+                    currentConsecutive++;
+                    if (currentConsecutive > maxConsecutive)
+                    {
+                        maxConsecutive = currentConsecutive;
+                    }
+                }
+                previousNumber = binaryNumber[i];
+            }
+            return maxConsecutive;
         }
         #endregion
     }
