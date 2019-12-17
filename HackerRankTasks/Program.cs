@@ -56,9 +56,25 @@ namespace HackerRankTasks
 
             RunInheritance();
 
-            RunMaxArraySum();*/
+            RunMaxArraySum();
 
-            RunAbstractClasses();
+            RunAbstractClasses();*/
+
+            RunBalancedBrackets();
+        }
+
+        static void RunBalancedBrackets()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var stackWorker = new StackWorker();
+            for (var i = 0; i < testsAmount; i++)
+            {
+                var expression = Console.ReadLine();
+
+                string result = stackWorker.SolveBracketsBalanceInExpression(expression);
+
+                Console.WriteLine(result);
+            }
         }
 
         static void RunAbstractClasses()

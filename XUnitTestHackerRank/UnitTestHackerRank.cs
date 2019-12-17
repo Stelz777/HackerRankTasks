@@ -542,5 +542,28 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBalancedBrackets
+        {
+            [Theory]
+            [InlineData("{[()]}", "YES")]
+            [InlineData("{[(])}", "NO")]
+            [InlineData("{{[[(())]]}}", "YES")]
+            [InlineData("[](){()}", "YES")]
+            [InlineData("()", "YES")]
+            [InlineData("({}([][]))[]()", "YES")]
+            [InlineData("{)[](}]}]}))}(())(", "NO")]
+            [InlineData("([[)", "NO")]
+            [InlineData("{}", "YES")]
+            [InlineData("}([[{)[]))]{){}[", "NO")]
+            [InlineData("{]]{()}{])", "NO")]
+            [InlineData("(){}", "YES")]
+            [InlineData("{}{()}{{}}", "YES")]
+            public void SolveBracketsBalanceInExpressionTheory(string expression, string expectedResult)
+            {
+                var stackWorker = new HackerRankTasks.StackWorker();
+                string result = stackWorker.SolveBracketsBalanceInExpression(expression);
+                Assert.Equal(expectedResult, result);
+            }
+        }
     }
 }
