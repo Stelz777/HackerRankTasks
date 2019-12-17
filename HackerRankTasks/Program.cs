@@ -8,7 +8,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -56,7 +56,18 @@ namespace HackerRankTasks
 
             RunInheritance();
 
-            RunMaxArraySum();
+            RunMaxArraySum();*/
+
+            RunAbstractClasses();
+        }
+
+        static void RunAbstractClasses()
+        {
+            var title = Console.ReadLine();
+            var author = Console.ReadLine();
+            var price = Int32.Parse(Console.ReadLine());
+            var newNovel = new MyBook(title, author, price);
+            newNovel.Display();
         }
 
         static void RunMaxArraySum()
