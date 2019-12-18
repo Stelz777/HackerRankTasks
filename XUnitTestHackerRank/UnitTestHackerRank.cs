@@ -565,5 +565,18 @@ namespace XUnitTestHackerRank
                 Assert.Equal(expectedResult, result);
             }
         }
+
+        public class UnitTestScope
+        {
+            [Theory]
+            [InlineData(new int[] { 1, 2, 5 }, 4)]
+            public void ComputeDifferenceTheory(int[] elements, int expectedResult)
+            {
+                var difference = new HackerRankTasks._30_Days_of_Code.Difference(elements);
+                difference.ComputeDifference();
+                Assert.Equal(expectedResult, difference.maximumDifference);
+            }
+        }
+
     }
 }

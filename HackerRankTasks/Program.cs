@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using HackerRankTasks._30_Days_of_Code;
 
 namespace HackerRankTasks
@@ -8,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            /*Run2DArrayDS();
+            Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -58,11 +59,25 @@ namespace HackerRankTasks
 
             RunMaxArraySum();
 
-            RunAbstractClasses();*/
+            RunAbstractClasses();
 
             RunBalancedBrackets();
+
+            RunScope();
         }
 
+        static void RunScope()
+        {
+            Convert.ToInt32(Console.ReadLine());
+
+            int[] numberArray = Console.ReadLine().Split(' ').Select(number => Convert.ToInt32(number)).ToArray();
+
+            var difference = new Difference(numberArray);
+
+            difference.ComputeDifference();
+
+            Console.Write(difference.maximumDifference);
+        }
         static void RunBalancedBrackets()
         {
             var testsAmount = Convert.ToInt32(Console.ReadLine());
