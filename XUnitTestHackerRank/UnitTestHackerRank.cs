@@ -578,5 +578,63 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestRoadsAndLibraries
+        {
+            [Fact]
+            public void CalculateBuildingCostWithExpensiveLibraryCost()
+            {
+                var citiesAmount = 3;
+                var libraryCost = 2;
+                var roadCost = 1;
+                var cities = new int[][]
+                {
+                    new int[] { 1, 2 },
+                    new int[] { 3, 1 },
+                    new int[] { 2, 3 }
+                };
+                var expectedResult = 4L;
+                TestEquality(citiesAmount, libraryCost, roadCost, cities, expectedResult);
+            }
+
+            [Fact]
+            public void CalculateBuildingCostWithExpensiveRoadCost()
+            { 
+                var citiesAmount = 6;
+                var libraryCost = 2;
+                var roadCost = 5;
+                var cities = new int[][]
+                {
+                    new int[] { 1, 3 },
+                    new int[] { 3, 4 },
+                    new int[] { 2, 4 },
+                    new int[] { 1, 2 },
+                    new int[] { 2, 3 },
+                    new int[] { 5, 6 }
+                };
+                var expectedResult = 12L;
+                TestEquality(citiesAmount, libraryCost, roadCost, cities, expectedResult);
+            }
+
+            [Fact]
+            public void CalculateBuildingCostZeroRoads()
+            {
+                var citiesAmount = 2;
+                var libraryCost = 102;
+                var roadCost = 1;
+                var cities = new int[][] { };
+                var expectedResult = 204L;
+                TestEquality(citiesAmount, libraryCost, roadCost, cities, expectedResult);
+            }
+
+
+
+            public void TestEquality(int citiesAmount, int libraryCost, int roadCost, int[][] cities, long expectedResult)
+            {
+                var graphWorker = new HackerRankTasks.GraphWorker();
+                long result = graphWorker.CalculateBuildingCost(citiesAmount, libraryCost, roadCost, cities);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
     }
 }

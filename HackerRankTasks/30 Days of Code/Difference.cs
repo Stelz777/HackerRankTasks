@@ -5,6 +5,7 @@ using System.Text;
 
 namespace HackerRankTasks._30_Days_of_Code
 {
+    //https://www.hackerrank.com/challenges/30-scope/problem
     public class Difference
     {
         private int[] elements;

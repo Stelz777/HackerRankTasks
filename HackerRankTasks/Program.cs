@@ -64,6 +64,37 @@ namespace HackerRankTasks
             RunBalancedBrackets();
 
             RunScope();
+
+            RunRoadsAndLibraries();
+        }
+
+        static void RunRoadsAndLibraries()
+        {
+            var queriesAmount = Convert.ToInt32(Console.ReadLine());
+            var graphWorker = new GraphWorker();
+            for (var queryIterator = 0; queryIterator < queriesAmount; queryIterator++)
+            {
+                string[] inputs = Console.ReadLine().Split(' ');
+
+                var citiesAmount = Convert.ToInt32(inputs[0]);
+
+                var roadsAmount = Convert.ToInt32(inputs[1]);
+
+                var libraryCost = Convert.ToInt32(inputs[2]);
+
+                var roadCost = Convert.ToInt32(inputs[3]);
+
+                var cities = new int[roadsAmount][];
+
+                for (var i = 0; i < roadsAmount; i++)
+                {
+                    cities[i] = Array.ConvertAll(Console.ReadLine().Split(' '), citiesTemp => Convert.ToInt32(citiesTemp));
+                }
+
+                long result = graphWorker.CalculateBuildingCost(citiesAmount, libraryCost, roadCost, cities);
+
+                Console.WriteLine(result);
+            }
         }
 
         static void RunScope()
