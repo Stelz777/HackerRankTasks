@@ -636,5 +636,37 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestLinkedList
+        {
+            [Fact]
+            public void InsertNodeToLinkedListFact()
+            {
+                var coderInThirtyDats = new HackerRankTasks.CoderInThirtyDays();
+                HackerRankTasks._30_Days_of_Code.Node head = null;
+                var data = 2;
+                head = coderInThirtyDats.InsertNodeToLinkedList(head, data);
+                data = 3;
+                head = coderInThirtyDats.InsertNodeToLinkedList(head, data);
+                data = 4;
+                head = coderInThirtyDats.InsertNodeToLinkedList(head, data);
+                data = 1;
+                head = coderInThirtyDats.InsertNodeToLinkedList(head, data);
+                HackerRankTasks._30_Days_of_Code.Node start = head;
+                var result = new List<int>();
+                var expectedResult = new List<int>();
+                expectedResult.Add(2);
+                expectedResult.Add(3);
+                expectedResult.Add(4);
+                expectedResult.Add(1);
+                while (start != null)
+                {
+                    result.Add(start.data);
+                    start = start.next;
+                }
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackerRankTasks._30_Days_of_Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -201,6 +202,40 @@ namespace HackerRankTasks
                 previousNumber = binaryNumber[i];
             }
             return maxConsecutive;
+        }
+        #endregion
+
+        #region LinkedList
+
+        public Node InsertNodeToLinkedList(Node head, int data)
+        {
+            if (head == null)
+            {
+                head = new Node(data);
+            }
+            else
+            {
+                Node start = head;
+                Node previousNode = head;
+                while (start != null)
+                {
+                    previousNode = start;
+                    start = start.next;
+                }
+                var newNode = new Node(data);
+                previousNode.next = newNode;
+            }
+            return head;
+        }
+
+        public void DisplayLinkedList(Node head)
+        {
+            Node start = head;
+            while (start != null)
+            {
+                Console.Write($"{ start.data } ");
+                start = start.next;
+            }
         }
         #endregion
     }

@@ -66,8 +66,22 @@ namespace HackerRankTasks
             RunScope();
 
             RunRoadsAndLibraries();
+
+            RunLinkedList();
         }
 
+        static void RunLinkedList()
+        {
+            Node head = null;
+            var testsAmount = Int32.Parse(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            while (testsAmount-- > 0)
+            {
+                var data = Int32.Parse(Console.ReadLine());
+                head = coderInThirtyDays.InsertNodeToLinkedList(head, data);
+            }
+            coderInThirtyDays.DisplayLinkedList(head);
+        }
         static void RunRoadsAndLibraries()
         {
             var queriesAmount = Convert.ToInt32(Console.ReadLine());
