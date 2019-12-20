@@ -76,7 +76,7 @@ namespace HackerRankTasks
 
         static void RunExceptionsStringToInteger()
         {
-            string input = Console.ReadLine();
+            var input = Console.ReadLine();
             var coderInThirtyDays = new CoderInThirtyDays();
             Object result = coderInThirtyDays.ConvertStringToInteger(input);
             Console.WriteLine(result);
