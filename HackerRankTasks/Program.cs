@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            /*Run2DArrayDS();
+            Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -69,9 +69,33 @@ namespace HackerRankTasks
 
             RunLinkedList();
 
-            RunBalancedForest();*/
+            RunBalancedForest();
 
             RunExceptionsStringToInteger();
+
+            RunInsertANodeAtASpecificPositionInALinkedList();
+        }
+
+        static void RunInsertANodeAtASpecificPositionInALinkedList()
+        {
+            var linkedList = new Linked_Lists.SinglyLinkedList();
+
+            var linkedListCount = Convert.ToInt32(Console.ReadLine());
+
+            for (var i = 0; i < linkedListCount; i++)
+            {
+                var linkedListItem = Convert.ToInt32(Console.ReadLine());
+                linkedList.InsertNode(linkedListItem);
+            }
+
+            var data = Convert.ToInt32(Console.ReadLine());
+
+            var position = Convert.ToInt32(Console.ReadLine());
+
+            Linked_Lists.SinglyLinkedListNode linkedListHead = linkedList.InsertNodeAtPosition(linkedList.head, data, position);
+
+            linkedList.PrintSinglyLinkedList(linkedListHead, " ");
+            Console.WriteLine();
         }
 
         static void RunExceptionsStringToInteger()

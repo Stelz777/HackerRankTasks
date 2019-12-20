@@ -803,5 +803,22 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestSinglyLinkedList
+        {
+            [Theory]
+            [InlineData(new int[] { 16, 13, 7 }, 1, 2, "16 13 1 7")]
+            public void GetSinglyLinkedListElementsTheory(int[] elements, int data, int position, string expectedResult)
+            {
+                var singlyLinkedList = new HackerRankTasks.Linked_Lists.SinglyLinkedList();
+                for (var i = 0; i < elements.Length; i++)
+                {
+                    singlyLinkedList.InsertNode(elements[i]);
+                }
+                HackerRankTasks.Linked_Lists.SinglyLinkedListNode head = singlyLinkedList.InsertNodeAtPosition(singlyLinkedList.head, data, position);
+                string result = singlyLinkedList.GetSinglyLinkedListElements(head, " ");
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
     }
 }
