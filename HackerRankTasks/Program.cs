@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -73,7 +73,28 @@ namespace HackerRankTasks
 
             RunExceptionsStringToInteger();
 
-            RunInsertANodeAtASpecificPositionInALinkedList();
+            RunInsertANodeAtASpecificPositionInALinkedList();*/
+
+            RunBotSavesPrincess();
+        }
+
+        static void RunBotSavesPrincess()
+        {
+            int fieldSize;
+
+            fieldSize = int.Parse(Console.ReadLine());
+
+            var grid = new String[fieldSize];
+            for (var i = 0; i < fieldSize; i++)
+            {
+                grid[i] = Console.ReadLine();
+            }
+            var artificialIntelligenceWorker = new ArtificialIntelligenceWorker();
+            List<string> result = artificialIntelligenceWorker.CalculatePathToPrincess(grid);
+            foreach (var direction in result)
+            {
+                Console.WriteLine(direction);
+            }
         }
 
         static void RunInsertANodeAtASpecificPositionInALinkedList()

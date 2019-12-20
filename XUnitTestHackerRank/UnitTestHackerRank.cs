@@ -820,5 +820,17 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBotSavesPrincess
+        {
+            [Fact]
+            public void CalculatePathToPrincessFact()
+            {
+                var grid = new string[] { "---", "-m-", "p--" };
+                var expectedResult = new List<string> { "DOWN", "LEFT" };
+                var artificialIntelligenceWorker = new HackerRankTasks.ArtificialIntelligenceWorker();
+                List<string> result = artificialIntelligenceWorker.CalculatePathToPrincess(grid);
+                Assert.Equal(expectedResult, result);
+            }
+        }
     }
 }
