@@ -7,9 +7,10 @@ namespace HackerRankTasks
     public class ArtificialIntelligenceWorker
     {
         #region BotSavesPrincess
+        //https://www.hackerrank.com/challenges/saveprincess?hr_b=1
         public void CalculateCoordinates(ref int verticalPosition, ref int horizontalPosition, String[] grid, string person)
         {
-            for (int i = 0; i < grid.Length; i++)
+            for (var i = 0; i < grid.Length; i++)
             {
                 if (grid[i].Contains(person))
                 {
@@ -21,7 +22,7 @@ namespace HackerRankTasks
 
         public List<string> AddResultToList(List<string> result, int difference, string word)
         {
-            for (int i = 0; i < Math.Abs(difference); i++)
+            for (var i = 0; i < Math.Abs(difference); i++)
             {
                 result.Add(word);
             }
@@ -31,10 +32,10 @@ namespace HackerRankTasks
         public List<string> CalculatePathToPrincess(String[] grid)
         {
             var result = new List<string>();
-            int princessVerticalPosition = -1;
-            int princessHorizontalPosition = -1;
-            int manVerticalPosition = -1;
-            int manHorizontalPosition = -1;
+            var princessVerticalPosition = -1;
+            var princessHorizontalPosition = -1;
+            var manVerticalPosition = -1;
+            var manHorizontalPosition = -1;
             CalculateCoordinates(ref princessVerticalPosition, ref princessHorizontalPosition, grid, "p");
             CalculateCoordinates(ref manVerticalPosition, ref manHorizontalPosition, grid, "m");
             int verticalDifference = princessVerticalPosition - manVerticalPosition;

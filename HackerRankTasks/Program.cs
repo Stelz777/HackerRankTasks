@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            /*Run2DArrayDS();
+            Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -73,7 +73,7 @@ namespace HackerRankTasks
 
             RunExceptionsStringToInteger();
 
-            RunInsertANodeAtASpecificPositionInALinkedList();*/
+            RunInsertANodeAtASpecificPositionInALinkedList();
 
             RunBotSavesPrincess();
         }
