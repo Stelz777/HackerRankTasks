@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -68,6 +68,41 @@ namespace HackerRankTasks
             RunRoadsAndLibraries();
 
             RunLinkedList();
+
+            RunBalancedForest();*/
+
+            RunExceptionsStringToInteger();
+        }
+
+        static void RunExceptionsStringToInteger()
+        {
+            string input = Console.ReadLine();
+            var coderInThirtyDays = new CoderInThirtyDays();
+            Object result = coderInThirtyDays.ConvertStringToInteger(input);
+            Console.WriteLine(result);
+        }
+
+        static void RunBalancedForest()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var treeWorker = new TreeWorker();
+            for (var testIterator = 0; testIterator < testsAmount; testIterator++)
+            {
+                var nodesAmount = Convert.ToInt32(Console.ReadLine());
+
+                int[] nodes = Array.ConvertAll(Console.ReadLine().Split(' '), nodeTemp => Convert.ToInt32(nodeTemp));
+
+                var edges = new int[nodesAmount - 1][];
+
+                for (var i = 0; i < nodesAmount - 1; i++)
+                {
+                    edges[i] = Array.ConvertAll(Console.ReadLine().Split(' '), edgesTemp => Convert.ToInt32(edgesTemp));
+                }
+
+                int result = treeWorker.CalculateMinimumValueToCreateBalancedForest(nodes, edges);
+
+                Console.WriteLine(result);
+            }
         }
 
         static void RunLinkedList()

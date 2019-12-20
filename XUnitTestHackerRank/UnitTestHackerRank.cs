@@ -667,6 +667,141 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBalancedForest
+        {
+            [Fact]
+            public void CalculateMinimumValueToCreateBalancedForestPossible()
+            {
+                var values = new int[] { 1, 2, 2, 1, 1 };
+                var edges = new int[][]
+                {
+                    new int[] { 1, 2 },
+                    new int[] { 1, 3 },
+                    new int[] { 3, 5 },
+                    new int[] { 1, 4 }
+                };
+                var expectedResult = 2;
+                TestEquality(values, edges, expectedResult);
+            }
+
+            [Fact]
+            public void CalculateMinimumValueToCreateBalancedForestPossibleEightNodes()
+            {
+                var values = new int[] { 1, 1, 1, 18, 10, 11, 5, 6 };
+                var edges = new int[][]
+                {
+                    new int[] { 1, 2 },
+                    new int[] { 1, 4 },
+                    new int[] { 2, 3 },
+                    new int[] { 1, 8 },
+                    new int[] { 8, 7 },
+                    new int[] { 7, 6 },
+                    new int[] { 5, 7 }
+                };
+                var expectedResult = 10;
+                TestEquality(values, edges, expectedResult);
+            }
+
+            [Fact]
+            public void CalculateMinimumValueToCreateBalancedForestPossibleSixNodes()
+            {
+                var values = new int[] { 12, 7, 11, 17, 20, 10 };
+                var edges = new int[][]
+                {
+                    new int[] { 1, 2 },
+                    new int[] { 2, 3 },
+                    new int[] { 4, 5 },
+                    new int[] { 6, 5 },
+                    new int[] { 1, 4 }
+                };
+                var expectedResult = 13;
+                TestEquality(values, edges, expectedResult);
+            }
+
+            [Fact]
+            public void CalculateMinimumValueToCreateBalancedForestPossibleEightNodesExpectedFive()
+            {
+                var values = new int[] { 10, 4, 1, 5, 6, 4, 5, 5 };
+                var edges = new int[][]
+                {
+                    new int[] { 1, 2 },
+                    new int[] { 2, 3 },
+                    new int[] { 1, 4 },
+                    new int[] { 5, 4 },
+                    new int[] { 5, 6 },
+                    new int[] { 7, 8 },
+                    new int[] { 7, 5 }
+                };
+                var expectedResult = 5;
+                TestEquality(values, edges, expectedResult);
+            }
+
+            [Fact]
+            public void CalculateMinimumValueToCreateBalancedForestPossibleAroundHundredValues()
+            {
+                var values = new int[] { 100, 100, 99, 99, 98, 98 };
+                var edges = new int[][]
+                {
+                    new int[] { 1, 3 },
+                    new int[] { 3, 5 },
+                    new int[] { 1, 2 },
+                    new int[] { 2, 4 },
+                    new int[] { 4, 6 }
+                };
+                var expectedResult = 297;
+                TestEquality(values, edges, expectedResult);
+            }
+
+
+            [Fact]
+            public void CalculateMinimumValueToCreateBalancedForestImpossible()
+            {
+                var values = new int[] { 1, 3, 5 };
+                var edges = new int[][]
+                {
+                    new int[] { 1, 3 },
+                    new int[] { 1, 2 }
+                };
+                var expectedResult = -1;
+                TestEquality(values, edges, expectedResult);
+            }
+
+            [Fact]
+            public void CalculateMinimumValueToCreateBalancedForestImpossibleSixNodesFiveEdges()
+            {
+                var values = new int[] { 7, 7, 4, 1, 1, 1 };
+                var edges = new int[][]
+                {
+                    new int[] { 1, 2 },
+                    new int[] { 3, 1 },
+                    new int[] { 2, 4 },
+                    new int[] { 2, 5 },
+                    new int[] { 2, 6 }
+                };
+                var expectedResult = -1;
+                TestEquality(values, edges, expectedResult);
+            }
+
+            public void TestEquality(int[] values, int[][] edges, int expectedResult)
+            {
+                var treeWorker = new HackerRankTasks.TreeWorker();
+                int result = treeWorker.CalculateMinimumValueToCreateBalancedForest(values, edges);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestExceptionsStringToInteger
+        {
+            [Theory]
+            [InlineData("3", 3)]
+            [InlineData("za", "Bad String")]
+            public void ConvertStringToIntegerTheory(string input, Object expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                Object result = coderInThirtyDays.ConvertStringToInteger(input);
+                Assert.Equal(expectedResult, result);
+            }
+        }
 
     }
 }

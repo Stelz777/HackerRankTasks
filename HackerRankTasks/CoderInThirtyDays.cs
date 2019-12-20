@@ -206,7 +206,7 @@ namespace HackerRankTasks
         #endregion
 
         #region LinkedList
-
+        //https://www.hackerrank.com/challenges/30-linked-list/problem
         public Node InsertNodeToLinkedList(Node head, int data)
         {
             if (head == null)
@@ -237,6 +237,22 @@ namespace HackerRankTasks
                 start = start.next;
             }
         }
+        #endregion
+
+        #region ExceptionsStringToInteger
+        //https://www.hackerrank.com/challenges/30-exceptions-string-to-integer/problem
+        public Object ConvertStringToInteger(string input)
+        {
+            try
+            {
+                return Int32.Parse(input);
+            }
+            catch
+            {
+                return "Bad String";
+            }
+        }
+
         #endregion
     }
 }
