@@ -873,6 +873,17 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestRecursionFibonacciNumbers
+        {
+            [Theory]
+            [InlineData(3, 2)]
+            public void CalculateFibonacciNumberTheory(int position, int expectedResult)
+            {
+                var backtracker = new HackerRankTasks.Backtracker();
+                int result = backtracker.CalculateFibonacciNumber(position);
+                Assert.Equal(expectedResult, result);
+            }
+        }
 
     }
 }

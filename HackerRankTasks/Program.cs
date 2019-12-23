@@ -82,6 +82,15 @@ namespace HackerRankTasks
             RunQueuesAndStacks();
 
             RunInterfaces();
+
+            RunRecursionFibonacciNumbers();
+        }
+
+        static void RunRecursionFibonacciNumbers()
+        {
+            var position = Convert.ToInt32(Console.ReadLine());
+            var backtracker = new Backtracker();
+            Console.WriteLine(backtracker.CalculateFibonacciNumber(position));
         }
 
         static void RunInterfaces()
