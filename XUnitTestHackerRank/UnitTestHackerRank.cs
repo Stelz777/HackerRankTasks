@@ -849,5 +849,18 @@ namespace XUnitTestHackerRank
 
         }
 
+        public class UnitTestQueuesAndStacks
+        {
+            [Theory]
+            [InlineData("racecar", "The word, racecar, is a palindrome.")]
+            public void IsPalindromeTheory(string input, string expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                string result = coderInThirtyDays.IsPalindrome(input);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
     }
 }

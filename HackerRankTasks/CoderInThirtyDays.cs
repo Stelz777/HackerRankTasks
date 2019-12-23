@@ -254,6 +254,59 @@ namespace HackerRankTasks
         }
 
         #endregion
+
+        #region QueuesAndStacks
+        //https://www.hackerrank.com/challenges/30-queues-stacks/problem
+        public Stack<char> stack = new Stack<char>();
+        public Queue<char> queue = new Queue<char>();
+
+        public void PushCharacter(char character)
+        {
+            stack.Push(character);
+        }
+
+        public void EnqueueCharacter(char character)
+        {
+            queue.Enqueue(character);
+        }
+
+        public char PopCharacter()
+        {
+            return stack.Pop();
+        }
+
+        public char DequeueCharacter()
+        {
+            return queue.Dequeue();
+        }
+
+        public string IsPalindrome(string input)
+        {
+            foreach (char character in input)
+            {
+                PushCharacter(character);
+                EnqueueCharacter(character);
+            }
+            var isPalidrome = true;
+            for (var i = 0; i < input.Length / 2; i++)
+            {
+                if (PopCharacter() != DequeueCharacter())
+                {
+                    isPalidrome = false;
+                    break;
+                }
+            }
+            if (isPalidrome)
+            {
+                return $"The word, { input }, is a palindrome.";
+            }
+            else
+            {
+                return $"The word, { input }, is not a palindrome.";
+            }
+            
+        }
+        #endregion
     }
 }
 

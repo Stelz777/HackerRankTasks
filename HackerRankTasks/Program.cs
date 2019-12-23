@@ -75,9 +75,18 @@ namespace HackerRankTasks
 
             RunInsertANodeAtASpecificPositionInALinkedList();
 
-            RunBotSavesPrincess();*/
+            RunBotSavesPrincess();
 
-            RunMoreExceptions();
+            RunMoreExceptions();*/
+
+            RunQueuesAndStacks();
+        }
+
+        static void RunQueuesAndStacks()
+        {
+            var input = Console.ReadLine();
+            var coderInThirtyDays = new CoderInThirtyDays();
+            Console.WriteLine(coderInThirtyDays.IsPalindrome(input));
         }
 
         static void RunMoreExceptions()
