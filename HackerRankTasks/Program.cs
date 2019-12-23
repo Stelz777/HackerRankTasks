@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -75,7 +75,31 @@ namespace HackerRankTasks
 
             RunInsertANodeAtASpecificPositionInALinkedList();
 
-            RunBotSavesPrincess();
+            RunBotSavesPrincess();*/
+
+            RunMoreExceptions();
+        }
+
+        static void RunMoreExceptions()
+        {
+            var calculator = new Calculator();
+            var testsAmount = Int32.Parse(Console.ReadLine());
+            while (testsAmount-- > 0)
+            {
+                string[] inputs = Console.ReadLine().Split();
+                var baseNumber = int.Parse(inputs[0]);
+                var exponent = int.Parse(inputs[1]);
+                try
+                {
+                    string answer = calculator.Power(baseNumber, exponent);
+                    Console.WriteLine(answer);
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+
+                }
+            }
         }
 
         static void RunBotSavesPrincess()

@@ -832,5 +832,22 @@ namespace XUnitTestHackerRank
                 Assert.Equal(expectedResult, result);
             }
         }
+
+        public class UnitTestMoreExceptions
+        {
+            [Theory]
+            [InlineData(3, 5, "243")]
+            [InlineData(2, 4, "16")]
+            [InlineData(-1, -2, "n and p should be non-negative")]
+            [InlineData(-1, 3, "n and p should be non-negative")]
+            public void PowerTheory(int baseNumber, int exponent, string expectedResult)
+            {
+                var calculator = new HackerRankTasks._30_Days_of_Code.Calculator();
+                string result = calculator.Power(baseNumber, exponent);
+                Assert.Equal(expectedResult, result);
+            }
+
+        }
+
     }
 }
