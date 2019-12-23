@@ -885,5 +885,18 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBotSavesPrincess2
+        {
+            [Theory]
+            [InlineData(5, 2, 3, new String[] { "-----", "-----", "p--m-", "-----", "-----" }, "LEFT")]
+            public void NextMoveTheory(int gridSize, int row, int column, String[] grid, string expectedResult)
+            {
+                var artificialIntelligenceWorker = new HackerRankTasks.ArtificialIntelligenceWorker();
+                string result = artificialIntelligenceWorker.NextMove(gridSize, row, column, grid);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
     }
 }

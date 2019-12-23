@@ -84,6 +84,28 @@ namespace HackerRankTasks
             RunInterfaces();
 
             RunRecursionFibonacciNumbers();
+
+            RunBotSavesPrincess2();
+        }
+
+        static void RunBotSavesPrincess2()
+        {
+            var artificialIntelligenceWorker = new ArtificialIntelligenceWorker();
+
+            var gridSize = int.Parse(Console.ReadLine());
+            
+            var position = Console.ReadLine();
+            String[] positions = position.Split(' ');
+            var numberPositions = new int[2];
+            numberPositions[0] = Convert.ToInt32(positions[0]);
+            numberPositions[1] = Convert.ToInt32(positions[1]);
+            var grid = new String[gridSize];
+            for (var i = 0; i < gridSize; i++)
+            {
+                grid[i] = Console.ReadLine();
+            }
+
+            Console.WriteLine(artificialIntelligenceWorker.NextMove(gridSize, numberPositions[0], numberPositions[1], grid));
         }
 
         static void RunRecursionFibonacciNumbers()

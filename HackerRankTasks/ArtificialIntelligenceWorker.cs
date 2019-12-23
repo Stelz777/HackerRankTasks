@@ -59,5 +59,34 @@ namespace HackerRankTasks
             return result;
         }
         #endregion
+
+        #region BotSavesPrincess2
+        //https://www.hackerrank.com/challenges/saveprincess2?hr_b=1
+        public string NextMove(int gridSize, int row, int column, String[] grid)
+        {
+            var princessVerticalPosition = -1;
+            var princessHorizontalPosition = -1;
+            CalculateCoordinates(ref princessVerticalPosition, ref princessHorizontalPosition, grid, "p");
+            int verticalDifference = princessVerticalPosition - row;
+            int horizontalDifference = princessHorizontalPosition - column;
+            if (horizontalDifference < 0)
+            {
+                return "LEFT";
+            }
+            if (horizontalDifference > 0)
+            {
+                return "RIGHT";
+            }
+            if (verticalDifference < 0)
+            {
+                return "UP";
+            }
+            if (verticalDifference > 0)
+            {
+                return "DOWN";
+            }
+            return String.Empty;
+        }
+        #endregion
     }
 }
