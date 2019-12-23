@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            /*Run2DArrayDS();
+            Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -77,9 +77,19 @@ namespace HackerRankTasks
 
             RunBotSavesPrincess();
 
-            RunMoreExceptions();*/
+            RunMoreExceptions();
 
             RunQueuesAndStacks();
+
+            RunInterfaces();
+        }
+
+        static void RunInterfaces()
+        {
+            var number = Int32.Parse(Console.ReadLine());
+            AdvancedArithmetic myCalculator = new Calculator();
+            int sum = myCalculator.CalculateDivisorsSum(number);
+            Console.WriteLine("I implemented: AdvancedArithmetic\n" + sum);
         }
 
         static void RunQueuesAndStacks()

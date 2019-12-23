@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HackerRankTasks._30_Days_of_Code
 {
-    public class Calculator
+    public class Calculator : AdvancedArithmetic
     {
         //https://www.hackerrank.com/challenges/30-more-exceptions/problem
 
@@ -24,6 +24,19 @@ namespace HackerRankTasks._30_Days_of_Code
             {
                 return exceptionMessage;
             }
+        }
+
+        public int CalculateDivisorsSum(int number)
+        {
+            var result = 0;
+            for (var i = number; i > 0; i--)
+            {
+                if (number % i == 0)
+                {
+                    result += i;
+                }
+            }
+            return result;
         }
     }
 }

@@ -861,6 +861,18 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestInterfaces
+        {
+            [Theory]
+            [InlineData(6, 12)]
+            public void CalculateDivisorsSumTheory(int number, int expectedResult)
+            {
+                var calculator = new HackerRankTasks._30_Days_of_Code.Calculator();
+                int result = calculator.CalculateDivisorsSum(number);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
 
     }
 }
