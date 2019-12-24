@@ -897,6 +897,29 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestFlipplingBits
+        {
+            [Theory]
+            [InlineData(0L, new bool[] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false })]
+            [InlineData(802743475L, new bool[] { false, false, true, false, true, true, true, true, true, true, false, true, true, false, false, false, true, true, true, false, false, true, false, false, true, false, true, true, false, false, true, true })]
+            public void ConvertDecimalToBinaryTheory(long decimalNumber, bool[] expectedResult)
+            {
+                var miscellaneousWorker = new HackerRankTasks.MiscellaneousWorker();
+                bool[] result = miscellaneousWorker.ConvertDecimalToBinary(decimalNumber);
+                Assert.Equal(expectedResult, result);
+            }
 
+            [Theory]
+            [InlineData(0L, 4294967295L)]
+            [InlineData(802743475L, 3492223820L)]
+            [InlineData(35601423L, 4259365872L)]
+            public void FlipBitsTheory(long decimalNumber, long expectedResult)
+            {
+                var miscellaneousWorker = new HackerRankTasks.MiscellaneousWorker();
+                long result = miscellaneousWorker.FlipBits(decimalNumber);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+        
     }
 }

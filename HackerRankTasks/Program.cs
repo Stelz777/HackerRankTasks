@@ -86,6 +86,22 @@ namespace HackerRankTasks
             RunRecursionFibonacciNumbers();
 
             RunBotSavesPrincess2();
+
+            RunFlippingBits();
+        }
+
+        static void RunFlippingBits()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var miscellaneousWorker = new MiscellaneousWorker();
+            for (var i = 0; i < testsAmount; i++)
+            {
+                var number = Convert.ToInt64(Console.ReadLine());
+
+                long result = miscellaneousWorker.FlipBits(number);
+
+                Console.WriteLine(result);
+            }
         }
 
         static void RunBotSavesPrincess2()
