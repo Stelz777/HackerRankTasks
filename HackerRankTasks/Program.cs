@@ -88,6 +88,26 @@ namespace HackerRankTasks
             RunBotSavesPrincess2();
 
             RunFlippingBits();
+
+            RunBotClean();
+        }
+
+        static void RunBotClean()
+        {
+            var artificialIntelligenceWorker = new ArtificialIntelligenceWorker();
+            var temp = Console.ReadLine();
+            String[] positions = temp.Split(' ');
+            var position = new int[2];
+            var board = new String[5];
+            for (var i = 0; i < 5; i++)
+            {
+                board[i] = Console.ReadLine();
+            }
+            for (var i = 0; i < 2; i++)
+            {
+                position[i] = Convert.ToInt32(positions[i]);
+            }
+            Console.WriteLine(artificialIntelligenceWorker.NextCleanBotMove(position[0], position[1], board));
         }
 
         static void RunFlippingBits()

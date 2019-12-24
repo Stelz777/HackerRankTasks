@@ -920,6 +920,20 @@ namespace XUnitTestHackerRank
                 Assert.Equal(expectedResult, result);
             }
         }
+
+        public class UnitTestBotClean
+        {
+            [Theory]
+            [InlineData(0, 0, new String[] { "b---d", "-d--d", "--dd-", "--d--", "----d" }, "RIGHT")]
+            [InlineData(0, 1, new String[] { "-b--d", "-d--d", "--dd-", "--d--", "----d" }, "DOWN")]
+            public void NextCleanBotMoveTheory(int rowPosition, int columnPosition, String[] board, string expectedResult)
+            {
+                var artificialIntelligenceWorker = new HackerRankTasks.ArtificialIntelligenceWorker();
+                string result = artificialIntelligenceWorker.NextCleanBotMove(rowPosition, columnPosition, board);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
         
     }
 }
