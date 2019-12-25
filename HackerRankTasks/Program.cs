@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -93,7 +93,27 @@ namespace HackerRankTasks
 
             RunGenerics();
 
-            RunTwoStrings();
+            RunTwoStrings();*/
+
+            RunBotCleanStochastic();
+        }
+
+        static void RunBotCleanStochastic()
+        {
+            var artificialIntelligenceWorker = new ArtificialIntelligenceWorker();
+            var temp = Console.ReadLine();
+            String[] positions = temp.Split(' ');
+            var position = new int[2];
+            var board = new String[5];
+            for (var i = 0; i < 5; i++)
+            {
+                board[i] = Console.ReadLine();
+            }
+            for (var i = 0; i < 2; i++)
+            {
+                position[i] = Convert.ToInt32(positions[i]);
+            }
+            Console.WriteLine(artificialIntelligenceWorker.NextCleanBotStochasticMove(position[0], position[1], board));
         }
 
         static void RunTwoStrings()

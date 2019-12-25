@@ -184,5 +184,37 @@ namespace HackerRankTasks
             return String.Empty;
         }
         #endregion
+
+        #region BotCleanStochastic
+        public string NextCleanBotStochasticMove(int rowPosition, int columnPosition, String[] board)
+        {
+            if (board[rowPosition][columnPosition] == 'd')
+            {
+                return "CLEAN";
+            }
+            var dirtyVerticalPosition = -1;
+            var dirtyHorizontalPosition = -1;
+            CalculateCoordinates(ref dirtyVerticalPosition, ref dirtyHorizontalPosition, board, "d");
+            int verticalDifference = dirtyVerticalPosition - rowPosition;
+            int horizontalDifference = dirtyHorizontalPosition - columnPosition;
+            if (horizontalDifference < 0)
+            {
+                return "LEFT";
+            }
+            if (horizontalDifference > 0)
+            {
+                return "RIGHT";
+            }
+            if (verticalDifference < 0)
+            {
+                return "UP";
+            }
+            if (verticalDifference > 0)
+            {
+                return "DOWN";
+            }
+            return String.Empty;
+        }
+        #endregion
     }
 }

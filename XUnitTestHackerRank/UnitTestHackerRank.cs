@@ -947,5 +947,17 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBotCleanStochastic
+        {
+            [Theory]
+            [InlineData(0, 0, new String[] { "b---d", "-----", "-----", "-----", "-----" }, "RIGHT")]
+            public void NextCleanBotStochasticMoveTheory(int rowPosition, int columnPosition, String[] board, string expectedResult)
+            {
+                var artificialIntelligenceWorker = new HackerRankTasks.ArtificialIntelligenceWorker();
+                string result = artificialIntelligenceWorker.NextCleanBotStochasticMove(rowPosition, columnPosition, board);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
     }
 }
