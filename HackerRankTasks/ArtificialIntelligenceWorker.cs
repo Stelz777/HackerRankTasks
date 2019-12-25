@@ -186,6 +186,7 @@ namespace HackerRankTasks
         #endregion
 
         #region BotCleanStochastic
+        //https://www.hackerrank.com/challenges/botcleanr/problem
         public string NextCleanBotStochasticMove(int rowPosition, int columnPosition, String[] board)
         {
             if (board[rowPosition][columnPosition] == 'd')

@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            /*Run2DArrayDS();
+            Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -93,7 +93,7 @@ namespace HackerRankTasks
 
             RunGenerics();
 
-            RunTwoStrings();*/
+            RunTwoStrings();
 
             RunBotCleanStochastic();
         }
