@@ -934,6 +934,18 @@ namespace XUnitTestHackerRank
             }
         }
 
-        
+        public class UnitTestTwoStrings
+        {
+            [Theory]
+            [InlineData("hello", "world", "YES")]
+            [InlineData("hi", "world", "NO")]
+            public void CheckIfStringsHaveCommonSubstringTheory(string firstString, string secondString, string expectedResult)
+            {
+                var dictionaryWorker = new HackerRankTasks.DictionaryWorker();
+                string result = dictionaryWorker.CheckIfStringsHaveCommonSubstring(firstString, secondString);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
     }
 }

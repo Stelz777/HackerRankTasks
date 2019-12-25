@@ -92,6 +92,24 @@ namespace HackerRankTasks
             RunBotClean();
 
             RunGenerics();
+
+            RunTwoStrings();
+        }
+
+        static void RunTwoStrings()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var dictionaryWorker = new DictionaryWorker();
+            for (var i = 0; i < testsAmount; i++)
+            {
+                var firstString = Console.ReadLine();
+
+                var secondString = Console.ReadLine();
+                
+                string result = dictionaryWorker.CheckIfStringsHaveCommonSubstring(firstString, secondString);
+
+                Console.WriteLine(result);
+            }
         }
 
         static void RunGenerics()
@@ -698,5 +716,7 @@ namespace HackerRankTasks
                 Console.WriteLine(resultString);
             }
         }
+
+        
     }
 }

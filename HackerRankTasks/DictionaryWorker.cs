@@ -48,5 +48,28 @@ namespace HackerRankTasks
             return "Yes";
         }
         #endregion
+
+        #region TwoStrings
+        //https://www.hackerrank.com/challenges/two-strings/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
+        public string CheckIfStringsHaveCommonSubstring(string firstString, string secondString)
+        {
+            Dictionary<char, bool> characters = new Dictionary<char, bool>();
+            foreach (var character in firstString)
+            {
+                if (!characters.ContainsKey(character))
+                {
+                    characters.Add(character, true);
+                }
+            }
+            foreach (var character in secondString)
+            {
+                if (characters.ContainsKey(character))
+                {
+                    return "YES";
+                }
+            }
+            return "NO";
+        }
+        #endregion
     }
 }
