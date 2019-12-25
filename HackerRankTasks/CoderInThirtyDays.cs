@@ -307,6 +307,17 @@ namespace HackerRankTasks
             
         }
         #endregion
+
+        #region Generics
+        //https://www.hackerrank.com/challenges/30-generics/problem
+        public void PrintArray<T>(T[] array)
+        {
+            foreach (var number in array)
+            {
+                Console.WriteLine(number);
+            }
+        }
+        #endregion
     }
 }
 

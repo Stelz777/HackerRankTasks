@@ -90,6 +90,29 @@ namespace HackerRankTasks
             RunFlippingBits();
 
             RunBotClean();
+
+            RunGenerics();
+        }
+
+        static void RunGenerics()
+        {
+            var coderInThirtyDays = new CoderInThirtyDays();
+            var arrayLength = Convert.ToInt32(Console.ReadLine());
+            var intArray = new int[arrayLength];
+            for (var i = 0; i < arrayLength; i++)
+            {
+                intArray[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            arrayLength = Convert.ToInt32(Console.ReadLine());
+            var stringArray = new string[arrayLength];
+            for (var i = 0; i < arrayLength; i++)
+            {
+                stringArray[i] = Console.ReadLine();
+            }
+
+            coderInThirtyDays.PrintArray<Int32>(intArray);
+            coderInThirtyDays.PrintArray<String>(stringArray);
         }
 
         static void RunBotClean()
