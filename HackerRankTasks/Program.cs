@@ -98,6 +98,23 @@ namespace HackerRankTasks
             RunBotCleanStochastic();
 
             RunBinarySearchTrees();
+
+            RunMarkAndToys();
+        }
+
+        static void RunMarkAndToys()
+        {
+            string[] inputs = Console.ReadLine().Split(' ');
+
+            var arrayLength = Convert.ToInt32(inputs[0]);
+
+            var money = Convert.ToInt32(inputs[1]);
+
+            int[] prices = Array.ConvertAll(Console.ReadLine().Split(' '), pricesTemp => Convert.ToInt32(pricesTemp));
+            var sorter = new Sorter();
+            int result = sorter.BuyMaximumToys(prices, money);
+
+            Console.WriteLine(result);
         }
 
         static void RunBinarySearchTrees()

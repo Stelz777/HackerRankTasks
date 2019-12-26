@@ -31,5 +31,27 @@ namespace HackerRankTasks
             return result;
         }
         #endregion
+
+        #region MarkAndToys
+        //https://www.hackerrank.com/challenges/mark-and-toys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
+        public int BuyMaximumToys(int[] prices, int money)
+        {
+            var result = 0;
+            Array.Sort(prices);
+            foreach (var price in prices)
+            {
+                money -= price;
+                if (money >= 0)
+                {
+                    result++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        #endregion
     }
 }

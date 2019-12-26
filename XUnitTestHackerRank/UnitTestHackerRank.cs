@@ -978,6 +978,19 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestMarkAndToys
+        {
+            [Theory]
+            [InlineData(new int[] { 1, 12, 5, 111, 200, 1000, 10 }, 50, 4)]
+            public void BuyMaximumToysTheory(int[] prices, int money, int expectedResult)
+            {
+                var sorter = new HackerRankTasks.Sorter();
+                int result = sorter.BuyMaximumToys(prices, money);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
 
     }
 }

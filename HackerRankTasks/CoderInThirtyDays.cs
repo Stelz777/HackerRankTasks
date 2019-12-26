@@ -320,6 +320,7 @@ namespace HackerRankTasks
         #endregion
 
         #region BinarySearchTrees
+        //https://www.hackerrank.com/challenges/30-binary-search-trees/problem
         public TreeNode InsertIntoTree(TreeNode root, int data)
         {
             if (root == null)
