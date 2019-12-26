@@ -318,6 +318,43 @@ namespace HackerRankTasks
             }
         }
         #endregion
+
+        #region BinarySearchTrees
+        public TreeNode InsertIntoTree(TreeNode root, int data)
+        {
+            if (root == null)
+            {
+                return new TreeNode(data);
+            }
+            else
+            {
+                TreeNode current;
+                if (data <= root.data)
+                {
+                    current = InsertIntoTree(root.left, data);
+                    root.left = current;
+                }
+                else
+                {
+                    current = InsertIntoTree(root.right, data);
+                    root.right = current;
+                }
+                return root;
+            }
+        }
+
+        public int GetTreeHeight(TreeNode root)
+        {
+            if (root == null)
+            {
+                return -1;
+            }
+            int leftHeight = GetTreeHeight(root.left);
+            int rightHeight = GetTreeHeight(root.right);
+            int max = leftHeight >= rightHeight ? leftHeight : rightHeight;
+            return max + 1;
+        }
+        #endregion
     }
 }
 

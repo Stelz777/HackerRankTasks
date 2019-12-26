@@ -959,5 +959,25 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBinarySearchTrees
+        {
+            [Fact]
+            public void GetTreeHeightFact()
+            {
+                var root = new HackerRankTasks._30_Days_of_Code.TreeNode(3);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                coderInThirtyDays.InsertIntoTree(root, 5);
+                coderInThirtyDays.InsertIntoTree(root, 2);
+                coderInThirtyDays.InsertIntoTree(root, 1);
+                coderInThirtyDays.InsertIntoTree(root, 4);
+                coderInThirtyDays.InsertIntoTree(root, 6);
+                coderInThirtyDays.InsertIntoTree(root, 7);
+                var expectedResult = 3;
+                int result = coderInThirtyDays.GetTreeHeight(root);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
     }
 }

@@ -96,6 +96,22 @@ namespace HackerRankTasks
             RunTwoStrings();
 
             RunBotCleanStochastic();
+
+            RunBinarySearchTrees();
+        }
+
+        static void RunBinarySearchTrees()
+        {
+            TreeNode root = null;
+            var nodesAmount = Int32.Parse(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            while (nodesAmount-- > 0)
+            {
+                var data = Int32.Parse(Console.ReadLine());
+                root = coderInThirtyDays.InsertIntoTree(root, data);
+            }
+            int height = coderInThirtyDays.GetTreeHeight(root);
+            Console.WriteLine(height);
         }
 
         static void RunBotCleanStochastic()
