@@ -100,6 +100,32 @@ namespace HackerRankTasks
             RunBinarySearchTrees();
 
             RunMarkAndToys();
+
+            RunBotCleanLarge();
+        }
+
+        static void RunBotCleanLarge()
+        {
+            var temp = Console.ReadLine();
+            String[] positions = temp.Split(' ');
+            var position = new int[2];
+            for (var i = 0; i < 2; i++)
+            {
+                position[i] = Convert.ToInt32(positions[i]);
+            }
+            String[] dimensions = Console.ReadLine().Split(' ');
+            var dimension = new int[2];
+            for (var i = 0; i < 2; i++)
+            {
+                dimension[i] = Convert.ToInt32(dimensions[i]);
+            }
+            var board = new String[dimension[0]];
+            for (var i = 0; i < dimension[0]; i++)
+            {
+                board[i] = Console.ReadLine();
+            }
+            var artificialIntelligenceWorker = new ArtificialIntelligenceWorker();
+            Console.WriteLine(artificialIntelligenceWorker.NextMegaMaidMove(position[0], position[1], dimension[0], dimension[1], board));
         }
 
         static void RunMarkAndToys()

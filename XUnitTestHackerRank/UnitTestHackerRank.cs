@@ -990,6 +990,17 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBotCleanLarge
+        {
+            [Theory]
+            [InlineData(0, 0, 5, 5, new String[] { "b---d", "-d--d", "--dd-", "--d--", "----d" }, "RIGHT")]
+            public void NextMegaMaidMoveTheory(int rowPosition, int columnPosition, int dimensionHeight, int dimensionWidth, String[] board, string expectedResult)
+            {
+                var artificialIntelligenceWorker = new HackerRankTasks.ArtificialIntelligenceWorker();
+                string result = artificialIntelligenceWorker.NextMegaMaidMove(rowPosition, columnPosition, dimensionHeight, dimensionWidth, board);
+                Assert.Equal(expectedResult, result);
+            }
+        }
 
 
     }

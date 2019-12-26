@@ -217,5 +217,13 @@ namespace HackerRankTasks
             return String.Empty;
         }
         #endregion
+
+        #region BotCleanLarge
+        //https://www.hackerrank.com/challenges/botcleanlarge/problem
+        public string NextMegaMaidMove(int rowPosition, int columnPosition, int dimensionHeight, int dimensionWidth, String[] board)
+        {
+            return NextCleanBotMove(rowPosition, columnPosition, board);
+        }
+        #endregion
     }
 }
