@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -101,7 +101,26 @@ namespace HackerRankTasks
 
             RunMarkAndToys();
 
-            RunBotCleanLarge();
+            RunBotCleanLarge();*/
+
+            RunBSTLevelOrderTraversal();
+        }
+
+        static void RunBSTLevelOrderTraversal()
+        {
+            TreeNode root = null;
+            var nodesAmount = Int32.Parse(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            while (nodesAmount-- > 0)
+            {
+                var data = Int32.Parse(Console.ReadLine());
+                root = coderInThirtyDays.InsertIntoTree(root, data);
+            }
+            List<int> result = coderInThirtyDays.GetBreadthFirstAllNodesInTree(root);
+            foreach (var item in result)
+            {
+                Console.Write($"{ item } ");
+            }
         }
 
         static void RunBotCleanLarge()

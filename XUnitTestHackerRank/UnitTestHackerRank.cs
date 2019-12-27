@@ -1002,6 +1002,23 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBSTLevelOrderTraversal
+        {
+            [Fact]
+            public void GetBreadthFirstAllNodesInTreeFact()
+            {
+                var root = new HackerRankTasks._30_Days_of_Code.TreeNode(3);
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                coderInThirtyDays.InsertIntoTree(root, 5);
+                coderInThirtyDays.InsertIntoTree(root, 4);
+                coderInThirtyDays.InsertIntoTree(root, 7);
+                coderInThirtyDays.InsertIntoTree(root, 2);
+                coderInThirtyDays.InsertIntoTree(root, 1);
+                var expectedResult = new List<int>() { 3, 2, 5, 1, 4, 7 };
+                List<int> result = coderInThirtyDays.GetBreadthFirstAllNodesInTree(root);
+                Assert.Equal(expectedResult, result);
+            }
+        }
 
     }
 }

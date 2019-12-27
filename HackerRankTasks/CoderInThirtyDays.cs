@@ -356,6 +356,33 @@ namespace HackerRankTasks
             return max + 1;
         }
         #endregion
+
+        #region BSTLevelOrderTraversal
+        //https://www.hackerrank.com/challenges/30-binary-trees/problem
+        public List<int> GetBreadthFirstAllNodesInTree(TreeNode root)
+        {
+            var result = new List<int>();
+            var nodes = new Queue<TreeNode>(); 
+            if (root != null)
+            {
+                nodes.Enqueue(root);
+                while (nodes.Count > 0)
+                {
+                    TreeNode tree = nodes.Dequeue();
+                    result.Add(tree.data);
+                    if (tree.left != null)
+                    {
+                        nodes.Enqueue(tree.left);
+                    }
+                    if (tree.right != null)
+                    {
+                        nodes.Enqueue(tree.right);
+                    }
+                }
+            }
+            return result;
+        }
+        #endregion
     }
 }
 
