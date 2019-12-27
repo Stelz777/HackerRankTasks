@@ -23,5 +23,21 @@ namespace HackerRankTasks
             return result;
         }
         #endregion
+
+        #region AlternatingCharacters
+        //https://www.hackerrank.com/challenges/alternating-characters/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        public int CalculateSymbolsToDeleteAmountToGetFavourableString(string input)
+        {
+            var result = 0;
+            for (var i = 0; i < input.Length - 1; i++)
+            {
+                if (input[i] == input[i + 1])
+                {
+                    result++;
+                }
+            }
+            return result;
+        }
+        #endregion
     }
 }

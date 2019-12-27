@@ -1020,5 +1020,22 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestAlternatingCharacters
+        {
+            [Theory]
+            [InlineData("AAAA", 3)]
+            [InlineData("BBBBB", 4)]
+            [InlineData("ABABABAB", 0)]
+            [InlineData("BABABA", 0)]
+            [InlineData("AAABBB", 4)]
+            public void CalculateSymbolsToDeleteAmountToGetFavourableStringTheory(string input, int expectedResult)
+            {
+                var stringManipulator = new HackerRankTasks.StringManipulator();
+                int result = stringManipulator.CalculateSymbolsToDeleteAmountToGetFavourableString(input);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
     }
 }

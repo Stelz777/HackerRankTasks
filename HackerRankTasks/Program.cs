@@ -101,9 +101,25 @@ namespace HackerRankTasks
 
             RunMarkAndToys();
 
-            RunBotCleanLarge();*/
+            RunBotCleanLarge();
 
-            RunBSTLevelOrderTraversal();
+            RunBSTLevelOrderTraversal();*/
+
+            RunAlternatingCharacters();
+        }
+
+        static void RunAlternatingCharacters()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var stringManipulator = new StringManipulator();
+            for (var i = 0; i < testsAmount; i++)
+            {
+                var input = Console.ReadLine();
+
+                int result = stringManipulator.CalculateSymbolsToDeleteAmountToGetFavourableString(input);
+
+                Console.WriteLine(result);
+            }
         }
 
         static void RunBSTLevelOrderTraversal()
