@@ -159,28 +159,82 @@ namespace HackerRankTasks
                     targetIdWithMinCost = target.Key;
                 }
             }
-            int verticalDifference = targets[targetIdWithMinCost].ordinate - rowPosition;
-            int horizontalDifference = targets[targetIdWithMinCost].absciss - columnPosition;
-            
-            if (horizontalDifference < 0)
+            if (targetIdWithMinCost != -1)
             {
+                int verticalDifference = targets[targetIdWithMinCost].ordinate - rowPosition;
+                int horizontalDifference = targets[targetIdWithMinCost].absciss - columnPosition;
+
+                if (horizontalDifference < 0)
+                {
                     return "LEFT";
+                }
+                if (horizontalDifference > 0)
+                {
+                    return "RIGHT";
+                }
+
+
+                if (verticalDifference < 0)
+                {
+                    return "UP";
+                }
+                if (verticalDifference > 0)
+                {
+                    return "DOWN";
+                }
             }
-            if (horizontalDifference > 0)
+            if (columnPosition == 0)
             {
                 return "RIGHT";
             }
-            
-            
-            if (verticalDifference < 0)
+            if (columnPosition == board[0].Length - 1)
             {
-                return "UP";
+                return "LEFT";
             }
-            if (verticalDifference > 0)
+            if (rowPosition == 0)
             {
                 return "DOWN";
             }
-            
+            if (rowPosition == board.Length - 1)
+            {
+                return "UP";
+            }
+            if (columnPosition != 1 && columnPosition != board[0].Length - 2 && rowPosition != 1 && rowPosition != board.Length - 2)
+            {
+                return "RIGHT";
+            }
+            if (columnPosition == 1 && rowPosition == 1)
+            {
+                return "RIGHT";
+            }
+            if (columnPosition == board[0].Length - 2 && rowPosition == 1)
+            {
+                return "DOWN";
+            }
+            if (columnPosition == board[0].Length - 2 && rowPosition == board.Length - 2)
+            {
+                return "LEFT";
+            }
+            if (columnPosition == 1 && rowPosition == board.Length - 2)
+            {
+                return "UP";
+            }
+            if (columnPosition == 1)
+            {
+                return "UP";
+            }
+            if (rowPosition == 1)
+            {
+                return "RIGHT";
+            }
+            if (columnPosition == board[0].Length - 2)
+            {
+                return "DOWN";
+            }
+            if (rowPosition == board.Length - 2)
+            {
+                return "LEFT";
+            }
             return String.Empty;
         }
         #endregion
@@ -221,6 +275,14 @@ namespace HackerRankTasks
         #region BotCleanLarge
         //https://www.hackerrank.com/challenges/botcleanlarge/problem
         public string NextMegaMaidMove(int rowPosition, int columnPosition, int dimensionHeight, int dimensionWidth, String[] board)
+        {
+            return NextCleanBotMove(rowPosition, columnPosition, board);
+        }
+        #endregion
+
+        #region BotCleanPartiallyObservable
+        //https://www.hackerrank.com/challenges/botcleanv2?hr_b=1
+        public string NextPartiallyObservableMove(int rowPosition, int columnPosition, String[] board)
         {
             return NextCleanBotMove(rowPosition, columnPosition, board);
         }

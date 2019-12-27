@@ -1036,6 +1036,18 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestBotCleanPartiallyObservable
+        {
+            [Theory]
+            [InlineData(0, 0, new String[] { "b-ooo", "-dooo", "ooooo", "ooooo", "ooooo" }, "RIGHT")]
+            public void NextPartiallyObservableMoveTheory(int rowPosition, int columnPosition, String[] board, string expectedResult)
+            {
+                var artificialIntelligenceWorker = new HackerRankTasks.ArtificialIntelligenceWorker();
+                string result = artificialIntelligenceWorker.NextPartiallyObservableMove(rowPosition, columnPosition, board);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
 
     }
 }

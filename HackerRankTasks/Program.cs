@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            /*Run2DArrayDS();
+            Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -103,9 +103,29 @@ namespace HackerRankTasks
 
             RunBotCleanLarge();
 
-            RunBSTLevelOrderTraversal();*/
+            RunBSTLevelOrderTraversal();
 
             RunAlternatingCharacters();
+
+            RunBotCleanPartiallyObservable();
+        }
+
+        static void RunBotCleanPartiallyObservable()
+        {
+            var temp = Console.ReadLine();
+            String[] positions = temp.Split(' ');
+            var position = new int[2];
+            var board = new String[5];
+            for (var i = 0; i < 5; i++)
+            {
+                board[i] = Console.ReadLine();
+            }
+            for (var i = 0; i < 2; i++)
+            {
+                position[i] = Convert.ToInt32(positions[i]);
+            }
+            var artificialIntelligenceWorker = new ArtificialIntelligenceWorker();
+            Console.WriteLine(artificialIntelligenceWorker.NextPartiallyObservableMove(position[0], position[1], board));
         }
 
         static void RunAlternatingCharacters()
