@@ -1063,6 +1063,19 @@ namespace XUnitTestHackerRank
 
         }
 
+        public class UnitTestNestedLogic
+        {
+            [Theory]
+            [InlineData(9, 6, 2015, 6, 6, 2015, 45)]
+            public void CalculateFineForLibraryBookTheory(int returnedDay, int returnedMonth, int returnedYear, int expectedDay, int expectedMonth, int expectedYear, int expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                int result = coderInThirtyDays.CalculateFineForLibraryBook(returnedDay, returnedMonth, returnedYear, expectedDay, expectedMonth, expectedYear);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
 
 
 

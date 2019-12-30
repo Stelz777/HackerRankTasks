@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -111,7 +111,20 @@ namespace HackerRankTasks
 
             RunMoreLinkedLists();
 
-            RunRunningTimeAndComplexity();
+            RunRunningTimeAndComplexity();*/
+
+            RunNestedLogic();
+        }
+
+        static void RunNestedLogic()
+        {
+            var returnedDateString = Console.ReadLine();
+            var expectedDateString = Console.ReadLine();
+            String[] returnedDate = returnedDateString.Split(' ');
+            String[] expectedDate = expectedDateString.Split(' ');
+            var coderInThirtyDays = new CoderInThirtyDays();
+            Console.WriteLine(coderInThirtyDays.CalculateFineForLibraryBook(Int32.Parse(returnedDate[0]), Int32.Parse(returnedDate[1]), Int32.Parse(returnedDate[2]),
+                Int32.Parse(expectedDate[0]), Int32.Parse(expectedDate[1]), Int32.Parse(expectedDate[2])));
         }
 
         static void RunRunningTimeAndComplexity()

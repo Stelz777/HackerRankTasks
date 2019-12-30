@@ -438,6 +438,31 @@ namespace HackerRankTasks
             return prime;
         }
         #endregion
+
+        #region NestedLogic
+        //https://www.hackerrank.com/challenges/30-nested-logic/problem
+        public int CalculateFineForLibraryBook(int returnedDay, int returnedMonth, int returnedYear, int expectedDay, int expectedMonth, int expectedYear)
+        {
+            var returnedDate = new DateTime(returnedYear, returnedMonth, returnedDay);
+            var expectedDate = new DateTime(expectedYear, expectedMonth, expectedDay);
+            if (returnedDate <= expectedDate)
+            {
+                return 0;
+            }
+            else if (returnedDate.Month == expectedDate.Month && returnedDate.Year == expectedDate.Year)
+            {
+                return 15 * (returnedDate.Day - expectedDate.Day);
+            }
+            else if (returnedDate.Year == expectedDate.Year)
+            {
+                return 500 * (returnedDate.Month - expectedDate.Month);
+            }
+            else
+            {
+                return 10000;
+            }
+        }
+        #endregion
     }
 }
 
