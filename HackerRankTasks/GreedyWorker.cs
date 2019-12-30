@@ -27,5 +27,40 @@ namespace HackerRankTasks
             return min;
         }
         #endregion
+
+        #region LuckBalance
+        //https://www.hackerrank.com/challenges/luck-balance/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=greedy-algorithms
+        public int CalculateLuckBalance(int maxImportantLoses, int[][] contests)
+        {
+            var result = 0;
+            var importantContests = new List<int>();
+            for (var i = 0; i < contests.Length; i++)
+            {
+                if (contests[i][1] == 0)
+                {
+                    result += contests[i][0];
+                }
+                else if (contests[i][1] == 1)
+                {
+                    importantContests.Add(contests[i][0]);
+                }
+            }
+            importantContests.Sort();
+            importantContests.Reverse();
+            for (var i = 0; i < importantContests.Count; i++)
+            {
+                if (maxImportantLoses > 0)
+                {
+                    result += importantContests[i];
+                    maxImportantLoses--;
+                }
+                else
+                {
+                    result -= importantContests[i];
+                }
+            }
+            return result;
+        }
+        #endregion
     }
 }

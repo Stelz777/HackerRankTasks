@@ -1075,6 +1075,27 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestLuckBalance
+        {
+            [Fact]
+            public void CalculateLuckBalanceFact()
+            {
+                var maxImportantLoses = 3;
+                var contests = new int[][]
+                {
+                    new int[] { 5, 1 },
+                    new int[] { 2, 1 },
+                    new int[] { 1, 1 },
+                    new int[] { 8, 1 },
+                    new int[] { 10, 0 },
+                    new int[] { 5, 0 }
+                };
+                var expectedResult = 29;
+                var greedyWorker = new HackerRankTasks.GreedyWorker();
+                int result = greedyWorker.CalculateLuckBalance(maxImportantLoses, contests);
+                Assert.Equal(expectedResult, result);
+            }
+        }
 
 
 

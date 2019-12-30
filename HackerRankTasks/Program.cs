@@ -111,9 +111,31 @@ namespace HackerRankTasks
 
             RunMoreLinkedLists();
 
-            RunRunningTimeAndComplexity();*/
+            RunRunningTimeAndComplexity();
 
-            RunNestedLogic();
+            RunNestedLogic();*/
+
+            RunLuckBalance();
+        }
+
+        static void RunLuckBalance()
+        {
+            string[] inputs = Console.ReadLine().Split(' ');
+
+            var arrayLength = Convert.ToInt32(inputs[0]);
+
+            var maxImportantLoses = Convert.ToInt32(inputs[1]);
+
+            var contests = new int[arrayLength][];
+
+            for (var i = 0; i < arrayLength; i++)
+            {
+                contests[i] = Array.ConvertAll(Console.ReadLine().Split(' '), contestsTemp => Convert.ToInt32(contestsTemp));
+            }
+            var greedyWorker = new GreedyWorker();
+            int result = greedyWorker.CalculateLuckBalance(maxImportantLoses, contests);
+
+            Console.WriteLine(result);
         }
 
         static void RunNestedLogic()
