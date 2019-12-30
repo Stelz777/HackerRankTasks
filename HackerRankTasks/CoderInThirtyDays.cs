@@ -209,21 +209,19 @@ namespace HackerRankTasks
         //https://www.hackerrank.com/challenges/30-linked-list/problem
         public Node InsertNodeToLinkedList(Node head, int data)
         {
+            var newNode = new Node(data);
             if (head == null)
             {
-                head = new Node(data);
+                head = newNode;
             }
             else
             {
                 Node start = head;
-                Node previousNode = head;
-                while (start != null)
+                while (start.next != null)
                 {
-                    previousNode = start;
                     start = start.next;
                 }
-                var newNode = new Node(data);
-                previousNode.next = newNode;
+                start.next = newNode;
             }
             return head;
         }
@@ -378,6 +376,34 @@ namespace HackerRankTasks
                     {
                         nodes.Enqueue(tree.right);
                     }
+                }
+            }
+            return result;
+        }
+        #endregion
+
+        #region MoreLinkedLists
+        //https://www.hackerrank.com/challenges/30-linked-list-deletion/problem
+        public Node RemoveDuplicatesInLinkedList(Node head)
+        {
+            var uniqueData = new Dictionary<int, bool>();
+            
+            Node start = head;
+            while (start != null)
+            {
+                int data = start.data;
+                if (!uniqueData.ContainsKey(data))
+                {
+                    uniqueData.Add(data, true);
+                }
+                start = start.next;
+            }
+            var result = new Node(head.data);
+            foreach (var data in uniqueData.Keys)
+            {
+                if (data != head.data)
+                {
+                    InsertNodeToLinkedList(result, data);
                 }
             }
             return result;

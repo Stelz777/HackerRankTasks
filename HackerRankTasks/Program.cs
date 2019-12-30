@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            Run2DArrayDS();
+            /*Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -107,7 +107,23 @@ namespace HackerRankTasks
 
             RunAlternatingCharacters();
 
-            RunBotCleanPartiallyObservable();
+            RunBotCleanPartiallyObservable();*/
+
+            RunMoreLinkedLists();
+        }
+
+        static void RunMoreLinkedLists()
+        {
+            Node head = null;
+            var nodesAmount = Int32.Parse(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            while (nodesAmount-- > 0)
+            {
+                var data = Int32.Parse(Console.ReadLine());
+                head = coderInThirtyDays.InsertNodeToLinkedList(head, data);
+            }
+            head = coderInThirtyDays.RemoveDuplicatesInLinkedList(head);
+            coderInThirtyDays.DisplayLinkedList(head);
         }
 
         static void RunBotCleanPartiallyObservable()
