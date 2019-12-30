@@ -409,6 +409,35 @@ namespace HackerRankTasks
             return result;
         }
         #endregion
+
+        #region RunningTimeAndComplexity
+        //https://www.hackerrank.com/challenges/30-running-time-and-complexity/problem
+        public string IsPrimeNumber(int number)
+        {
+            var notPrime = "Not prime";
+            var prime = "Prime";
+            if (number <= 1)
+            {
+                return notPrime;
+            }
+            if (number <= 3)
+            {
+                return prime;
+            }
+            if (number % 2 == 0 || number % 3 == 0)
+            {
+                return notPrime;
+            }
+            for (int i = 5; i * i <= number; i += 6)
+            {
+                if (number % i == 0 || number % (i + 2) == 0)
+                {
+                    return notPrime;
+                }
+            }
+            return prime;
+        }
+        #endregion
     }
 }
 

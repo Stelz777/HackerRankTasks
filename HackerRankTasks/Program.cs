@@ -9,7 +9,7 @@ namespace HackerRankTasks
     {
         static void Main(string[] args)
         {
-            /*Run2DArrayDS();
+            Run2DArrayDS();
 
             RunArrayManipulation();
 
@@ -107,10 +107,24 @@ namespace HackerRankTasks
 
             RunAlternatingCharacters();
 
-            RunBotCleanPartiallyObservable();*/
+            RunBotCleanPartiallyObservable();
 
             RunMoreLinkedLists();
+
+            RunRunningTimeAndComplexity();
         }
+
+        static void RunRunningTimeAndComplexity()
+        {
+            var testsAmount = Int32.Parse(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            for (var i = 0; i < testsAmount; i++)
+            {
+                var number = Int32.Parse(Console.ReadLine());
+                Console.WriteLine(coderInThirtyDays.IsPrimeNumber(number));
+            }
+        }
+
 
         static void RunMoreLinkedLists()
         {

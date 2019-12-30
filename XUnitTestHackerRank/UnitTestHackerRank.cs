@@ -1048,7 +1048,21 @@ namespace XUnitTestHackerRank
             }
         }
 
-        
+        public class UnitTestRunningTimeAndComplexity
+        {
+            [Theory]
+            [InlineData(12, "Not prime")]
+            [InlineData(5, "Prime")]
+            [InlineData(7, "Prime")]
+            public void IsPrimeNumberTheory(int number, string expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                string result = coderInThirtyDays.IsPrimeNumber(number);
+                Assert.Equal(expectedResult, result);
+            }
+
+        }
+
 
 
 
