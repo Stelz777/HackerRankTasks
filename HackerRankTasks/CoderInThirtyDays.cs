@@ -495,6 +495,25 @@ namespace HackerRankTasks
             }
         }
         #endregion
+
+        #region BitwiseAND
+        public int FindMaxPossibleValueOfBitwiseOperation(int rightSetBorder, int lessThanValue)
+        {
+            var bitwiseOperationResultsLessThanValue = new List<int>();
+            for (var i = 1; i < rightSetBorder; i++)
+            {
+                for (var j = i + 1; j <= rightSetBorder; j++)
+                {
+                    int bitwiseOperationResult = i & j;
+                    if (bitwiseOperationResult < lessThanValue)
+                    {
+                        bitwiseOperationResultsLessThanValue.Add(bitwiseOperationResult);
+                    }
+                }
+            }
+            return bitwiseOperationResultsLessThanValue.Max();
+        }
+        #endregion
     }
 }
 

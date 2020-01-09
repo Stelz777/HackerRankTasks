@@ -115,9 +115,24 @@ namespace HackerRankTasks
 
             RunNestedLogic();
 
-            RunLuckBalance();*/
+            RunLuckBalance();
 
-            RunRegExPatternsAndIntroToDatabases();
+            RunRegExPatternsAndIntroToDatabases();*/
+
+            RunBitwiseAND();
+        }
+
+        static void RunBitwiseAND()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            for (var i = 0; i < testsAmount; i++)
+            {
+                string[] inputs = Console.ReadLine().Split(' ');
+                var rightSetBorder = Convert.ToInt32(inputs[0]);
+                var lessThanValue = Convert.ToInt32(inputs[1]);
+                Console.WriteLine(coderInThirtyDays.FindMaxPossibleValueOfBitwiseOperation(rightSetBorder, lessThanValue));
+            }
         }
 
         static void RunRegExPatternsAndIntroToDatabases()
@@ -125,7 +140,7 @@ namespace HackerRankTasks
             var personsAmount = Convert.ToInt32(Console.ReadLine());
             var coderInThirtyDays = new CoderInThirtyDays();
             var personalDataList = new List<PersonalData>();
-            for (int i = 0; i < personsAmount; i++)
+            for (var i = 0; i < personsAmount; i++)
             {
                 string[] inputs = Console.ReadLine().Split(' ');
                 string firstName = inputs[0];

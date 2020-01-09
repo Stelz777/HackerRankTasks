@@ -1129,10 +1129,45 @@ namespace XUnitTestHackerRank
                 List<string> result = coderInThirtyDays.GetAlphabeticallyOrderedListOfFirstNamesForEveryUserWithAGmailAccount(personalDataList);
                 Assert.Equal(expectedResult, result);
             }
-
-            
         }
 
+        public class UnitTestBitwiseAND
+        {
+            [Theory]
+            [InlineData(5, 2, 1)]
+            [InlineData(8, 5, 4)]
+            [InlineData(2, 2, 0)]
+            public void FindMaxPossibleValueOfBitwiseOperationTheory(int rightSetBorder, int lessThanValue, int expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                int result = coderInThirtyDays.FindMaxPossibleValueOfBitwiseOperation(rightSetBorder, lessThanValue);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestSwapNodesAlgo
+        {
+            [Fact]
+            public void SwapNodes()
+            {
+                var searcher = new HackerRankTasks.Searcher();
+                int[][] indexes = new int[][]
+                {
+                    new int[] { 2, 3 },
+                    new int[] { -1, -1 },
+                    new int[] { -1, -1 }
+                };
+
+                int[] queries = new int[] { 1, 1 };
+                int[][] expectedResult = new int[][]
+                {
+                    new int[] { 3, 1, 2 },
+                    new int[] { 2, 1, 3 }
+                };
+                int[][] result = searcher.SwapNodes(indexes, queries);
+                Assert.Equal(expectedResult, result);
+            }
+        }
 
 
     }
