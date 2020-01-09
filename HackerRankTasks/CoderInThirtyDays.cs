@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace HackerRankTasks
 {
@@ -460,6 +461,37 @@ namespace HackerRankTasks
             else
             {
                 return 10000;
+            }
+        }
+        #endregion
+
+        #region RegExPatternsAndIntroToDatabases
+        //https://www.hackerrank.com/challenges/30-regex-patterns/problem
+        public List<String> GetAlphabeticallyOrderedListOfFirstNamesForEveryUserWithAGmailAccount(List<PersonalData> personalDataList)
+        {
+            var result = new List<string>();
+            foreach (var personalData in personalDataList)
+            {
+                if (EmailEndsWithCommercialAtGmailDotCom(personalData.email))
+                {
+                    result.Add(personalData.name);
+                }
+            }
+            result.Sort();
+            return result;
+        }
+
+        public bool EmailEndsWithCommercialAtGmailDotCom(string email)
+        {
+            var regex = new Regex(@"\@gmail\.com$");
+            MatchCollection matches = regex.Matches(email);
+            if (matches.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         #endregion

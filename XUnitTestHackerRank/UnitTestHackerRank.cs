@@ -1097,6 +1097,41 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestRegExPatternsAndIntroToDatabases
+        {
+            [Theory]
+            [InlineData("riya@gmail.com", true)]
+            [InlineData("julia@julia.me", false)]
+            public void EmailEndsWithCommercialAtGmailDotComTheory(string email, bool expectedResult)
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                bool result = coderInThirtyDays.EmailEndsWithCommercialAtGmailDotCom(email);
+                Assert.Equal(expectedResult, result);
+            }
+
+            [Fact]
+            public void GetAlphabeticallyOrderedListOfFirstNamesForEveryUserWithAGmailAccountFact()
+            {
+                var coderInThirtyDays = new HackerRankTasks.CoderInThirtyDays();
+                var personalDataList = new List<HackerRankTasks._30_Days_of_Code.PersonalData>();
+                personalDataList.Add(new HackerRankTasks._30_Days_of_Code.PersonalData("riya", "riya@gmail.com"));
+                personalDataList.Add(new HackerRankTasks._30_Days_of_Code.PersonalData("julia", "julia@julia.me"));
+                personalDataList.Add(new HackerRankTasks._30_Days_of_Code.PersonalData("julia", "sjulia@gmail.com"));
+                personalDataList.Add(new HackerRankTasks._30_Days_of_Code.PersonalData("julia", "julia@gmail.com"));
+                personalDataList.Add(new HackerRankTasks._30_Days_of_Code.PersonalData("samantha", "samantha@gmail.com"));
+                personalDataList.Add(new HackerRankTasks._30_Days_of_Code.PersonalData("tanya", "tanya@gmail.com"));
+                var expectedResult = new List<string>();
+                expectedResult.Add("julia");
+                expectedResult.Add("julia");
+                expectedResult.Add("riya");
+                expectedResult.Add("samantha");
+                expectedResult.Add("tanya");
+                List<string> result = coderInThirtyDays.GetAlphabeticallyOrderedListOfFirstNamesForEveryUserWithAGmailAccount(personalDataList);
+                Assert.Equal(expectedResult, result);
+            }
+
+            
+        }
 
 
 

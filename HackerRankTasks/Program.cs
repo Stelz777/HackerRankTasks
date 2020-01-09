@@ -113,9 +113,30 @@ namespace HackerRankTasks
 
             RunRunningTimeAndComplexity();
 
-            RunNestedLogic();*/
+            RunNestedLogic();
 
-            RunLuckBalance();
+            RunLuckBalance();*/
+
+            RunRegExPatternsAndIntroToDatabases();
+        }
+
+        static void RunRegExPatternsAndIntroToDatabases()
+        {
+            var personsAmount = Convert.ToInt32(Console.ReadLine());
+            var coderInThirtyDays = new CoderInThirtyDays();
+            var personalDataList = new List<PersonalData>();
+            for (int i = 0; i < personsAmount; i++)
+            {
+                string[] inputs = Console.ReadLine().Split(' ');
+                string firstName = inputs[0];
+                string emailID = inputs[1];
+                personalDataList.Add(new PersonalData(firstName, emailID));
+            }
+            List<string> result = coderInThirtyDays.GetAlphabeticallyOrderedListOfFirstNamesForEveryUserWithAGmailAccount(personalDataList);
+            foreach (var name in result)
+            {
+                Console.WriteLine(name);
+            }
         }
 
         static void RunLuckBalance()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HackerRankTasks
@@ -285,6 +286,75 @@ namespace HackerRankTasks
         public string NextPartiallyObservableMove(int rowPosition, int columnPosition, String[] board)
         {
             return NextCleanBotMove(rowPosition, columnPosition, board);
+        }
+        #endregion
+
+        #region MazeEscape
+        //https://www.hackerrank.com/challenges/maze-escape?hr_b=1
+        public string direction = "NORTH";
+        /*public string NextMoveInMaze(int rowPosition, int columnPosition, String[] board)
+        {
+
+        }*/
+        #endregion
+        
+
+
+        #region ClickOMania
+        //https://www.hackerrank.com/challenges/click-o-mania?hr_b=1
+        public void CheckAdjacent(int rows, int columns, ref bool[,] areCheckedCells, ref int currentValue, String[] grid, int currentRow, int currentColumn)
+        {
+            currentValue++;
+            areCheckedCells[currentRow, currentColumn] = true;
+            if (currentColumn + 1 < columns)
+            {
+                if (grid[currentRow][currentColumn + 1] == grid[currentRow][currentColumn] && !areCheckedCells[currentRow, currentColumn + 1])
+                {
+                    CheckAdjacent(rows, columns, ref areCheckedCells, ref currentValue, grid, currentRow, currentColumn + 1);
+                }
+            }
+            if (currentRow + 1 < rows)
+            {
+                if (grid[currentRow + 1][currentColumn] == grid[currentRow][currentColumn] && !areCheckedCells[currentRow + 1, currentColumn])
+                {
+                    CheckAdjacent(rows, columns, ref areCheckedCells, ref currentValue, grid, currentRow + 1, currentColumn);
+                }
+            }
+            if (currentColumn - 1 >= 0)
+            {
+                if (grid[currentRow][currentColumn - 1] == grid[currentRow][currentColumn] && !areCheckedCells[currentRow, currentColumn - 1])
+                {
+                    CheckAdjacent(rows, columns, ref areCheckedCells, ref currentValue, grid, currentRow, currentColumn - 1);
+                }
+            }
+            if (currentRow - 1 >= 0)
+            {
+                if (grid[currentRow - 1][currentColumn] == grid[currentRow][currentColumn] && !areCheckedCells[currentRow - 1, currentColumn])
+                {
+                    CheckAdjacent(rows, columns, ref areCheckedCells, ref currentValue, grid, currentRow - 1, currentColumn);
+                }
+            }
+        }
+
+        public int[] NextClick(int rows, int columns, int colorsAmount, String[] grid)
+        {
+            bool[,] areCheckedCells = new bool[rows, columns];
+            var blocks = new Dictionary<int[], int>();
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (grid[i][j] != '-' && !areCheckedCells[i, j])
+                    {
+                        int currentValue = 0;
+                        CheckAdjacent(rows, columns, ref areCheckedCells, ref currentValue, grid, i, j);
+                        blocks.Add(new int[] { i, j }, currentValue);
+                    }
+                    
+                }
+            }
+            var max = blocks.Aggregate((left, right) => left.Value > right.Value ? left : right).Key;
+            return max;
         }
         #endregion
     }
