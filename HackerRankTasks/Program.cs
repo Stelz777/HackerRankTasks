@@ -117,9 +117,49 @@ namespace HackerRankTasks
 
             RunLuckBalance();
 
-            RunRegExPatternsAndIntroToDatabases();*/
+            RunRegExPatternsAndIntroToDatabases();
 
             RunBitwiseAND();
+
+            RunAbbreviation();*/
+
+            RunQueuesATaleOfTwoStacks();
+        }
+
+        static void RunQueuesATaleOfTwoStacks()
+        {
+            var stackWorker = new HackerRankTasks.StackWorker();
+            var queriesAmount = Int32.Parse(Console.ReadLine());
+            for (var i = 0; i < queriesAmount; i++)
+            {
+                string[] inputs = Console.ReadLine().Split(' ');
+                switch (Int32.Parse(inputs[0]))
+                {
+                    case 1:
+                        stackWorker.Put(Int32.Parse(inputs[1]));
+                        break;
+                    case 2:
+                        stackWorker.Pop();
+                        break;
+                    case 3:
+                        Console.WriteLine(stackWorker.Peek());
+                        break;
+                }
+            }
+        }
+
+        static void RunAbbreviation()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var dynamicProgrammer = new DynamicProgrammer();
+            for (var i = 0; i < testsAmount; i++)
+            {
+                var transformingString = Console.ReadLine();
+                var targetString = Console.ReadLine();
+                string result = dynamicProgrammer.FindOutCanWeTransformOneStringToAnother(transformingString, targetString);
+                Console.WriteLine(result);
+            }
+
         }
 
         static void RunBitwiseAND()
