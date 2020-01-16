@@ -1288,6 +1288,24 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestSherlockAndAnagrams
+        {
+            [Theory]
+            [InlineData("abba", 4)]
+            [InlineData("abcd", 0)]
+            [InlineData("ifailuhkqq", 3)]
+            [InlineData("kkkk", 10)]
+            [InlineData("cdcd", 5)]
+            public void CountAnagramsInStringTheory(string input, int expectedResult)
+            {
+                var dictionaryWorker = new HackerRankTasks.DictionaryWorker();
+                int result = dictionaryWorker.CountAnagramsInString(input);
+                Assert.Equal(expectedResult, result);
+            }
+
+        }
+
+
 
     }
 }

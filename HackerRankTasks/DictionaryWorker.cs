@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HackerRankTasks
@@ -69,6 +70,34 @@ namespace HackerRankTasks
                 }
             }
             return "NO";
+        }
+        #endregion
+
+        #region SherlockAndAnagrams
+        public int CountAnagramsInString(string input)
+        {
+            var counter = 0;
+            for (var i = 1; i <= input.Length; i++)
+            {
+                var chains = new Dictionary<string, int>();
+                for (var j = 0; j <= input.Length - i; j++)
+                {
+                    var chain = new string(input.Substring(j, i).OrderBy(character => character).ToArray());
+                    if (!chains.ContainsKey(chain))
+                    {
+                        chains.Add(chain, 1);
+                    }
+                    else
+                    {
+                        chains[chain]++;
+                    }
+                }
+                chains.Values.Where(where => where > 1).ToList().ForEach(item =>
+                {
+                    counter += item * (item - 1) / 2;
+                });
+            }
+            return counter;
         }
         #endregion
     }
