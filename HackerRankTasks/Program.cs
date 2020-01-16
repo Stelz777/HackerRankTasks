@@ -124,9 +124,27 @@ namespace HackerRankTasks
 
             RunAbbreviation();
 
-            RunQueuesATaleOfTwoStacks();*/
+            RunQueuesATaleOfTwoStacks();
 
-            RunInsertingANodeIntoASortedDoublyLinkedList();
+            RunInsertingANodeIntoASortedDoublyLinkedList();*/
+
+            RunRecursionDavisStaircase();
+        }
+
+        static void RunRecursionDavisStaircase()
+        {
+            var stairsAmount = Convert.ToInt32(Console.ReadLine());
+            var backtracker = new Backtracker();
+
+            for (var i = 0; i < stairsAmount; i++)
+            {
+                var stepsAmount = Convert.ToInt32(Console.ReadLine());
+
+                int result = backtracker.CalculateWaysAmountToClimbTheLadder(stepsAmount);
+
+                Console.WriteLine(result);
+            }
+
         }
 
         static void RunInsertingANodeIntoASortedDoublyLinkedList()

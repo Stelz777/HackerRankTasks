@@ -1275,5 +1275,19 @@ namespace XUnitTestHackerRank
 
         }
 
+        public class UnitTestRecursionDavisStaircase
+        {
+            [Theory]
+            [InlineData(1, 1)]
+            [InlineData(3, 4)]
+            public void CalculateWaysAmountToClimbTheLadderTheory(int stepsAmount, int expectedResult)
+            {
+                var backtracker = new HackerRankTasks.Backtracker();
+                int result = backtracker.CalculateWaysAmountToClimbTheLadder(stepsAmount);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+
     }
 }
