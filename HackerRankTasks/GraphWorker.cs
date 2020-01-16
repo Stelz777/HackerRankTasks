@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackerRankTasks.Graphs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,6 +75,137 @@ namespace HackerRankTasks
                 }
                 return -sum;
             }
+        }
+        #endregion
+
+        #region FindTheNearestClone
+        //https://www.hackerrank.com/challenges/find-the-nearest-clone/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=graphs
+        Dictionary<int, Node> nodesGroup = new Dictionary<int, Node>();
+        long[] colors;
+        int[] nodesSource;
+        int[] nodesTarget;
+
+        public int FindRouteLengthToNodeWithTheSameColor(int nodesAmount, int[] nodesSource, int[] nodesTarget, long[] colors, int colorToMatch)
+        {
+            this.colors = colors;
+            this.nodesSource = nodesSource;
+            this.nodesTarget = nodesTarget;
+            BuildGraph();
+            var distances = new List<int>();
+            foreach (var node in nodesGroup)
+            {
+                if (CheckNodeColor(node.Value, colorToMatch))
+                {
+                    var visitedNodes = new List<Node>();
+                    visitedNodes.Add(node.Value);
+                    int distance = 0;
+                    distance = FindLeastDistanceToNodeWithTheSameColor(node.Value, visitedNodes, distance, colorToMatch);
+                    if (distance == 1 || distance == -1)
+                    {
+                        return distance;
+                    }
+                    distances.Add(distance);
+                    
+                }
+            }
+            return distances.Min();
+        }
+
+        public int FindLeastDistanceToNodeWithTheSameColor(Node node, List<Node> visitedNodes, int distance, int colorToMatch)
+        {
+            distance++;
+            var nodesToVisit = new List<Node>();
+            foreach (var neighbor in node.neighbors)
+            {
+                if (!CheckVisited(visitedNodes, neighbor))
+                {
+                    visitedNodes.Add(neighbor);
+                    nodesToVisit.Add(neighbor);
+                    if (neighbor.color == colorToMatch)
+                    {
+                        return distance;
+                    }
+                }
+            }
+            foreach (var nodeToVisit in nodesToVisit)
+            {
+                int tempDistance = distance;
+                distance = FindLeastDistanceToNodeWithTheSameColor(nodeToVisit, visitedNodes, distance, colorToMatch);
+            }
+            return -1;
+        }
+
+        public bool CheckVisited(List<Node> visitedNodes, Node currentNode)
+        {
+            foreach (var node in visitedNodes)
+            {
+                if (node == currentNode)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CheckNodeColor(Node node, int colorToMatch)
+        {
+            if (node.color == colorToMatch)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void BuildGraph()
+        {
+            for (int i = 0; i < colors.Length; i++)
+            {
+                Node node = CreateNode(i + 1, colors[i]);
+                AddNodeToGroup(node, i + 1);
+            }
+            foreach (var node in nodesGroup)
+            {
+                CreateLinks(node);
+            }
+        }
+
+        public void AddNodeToGroup(Node node, int nodeId)
+        {
+            if (!nodesGroup.ContainsKey(nodeId))
+            {
+                nodesGroup.Add(nodeId, node);
+            }
+        }
+
+        public Node CreateNode(int nodeId, long color)
+        {
+            var node = new Node();
+            node.id = nodeId;
+            node.color = color;
+            node.neighbors = new List<Node>();
+            return node;
+        }
+
+        public void CreateLinks(KeyValuePair<int, Node> pair)
+        {
+            AddLinks(pair, nodesSource, nodesTarget);
+            AddLinks(pair, nodesTarget, nodesSource);
+        }
+
+        public void AddLinks(KeyValuePair<int, Node> pair, int[] source, int[] target)
+        {
+            for (int i = 0; i < source.Length; i++)
+            {
+                if (pair.Key == source[i])
+                {
+                    AddNodeToNeighbors(pair.Value, target[i]);
+                }
+            }
+        }
+
+        public void AddNodeToNeighbors(Node node, int nodeIdToAdd)
+        {
+            node.neighbors.Add(nodesGroup[nodeIdToAdd]);
         }
         #endregion
     }

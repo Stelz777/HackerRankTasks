@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HackerRankTasks._30_Days_of_Code;
+using HackerRankTasks.Linked_Lists;
 
 namespace HackerRankTasks
 {
@@ -121,9 +122,36 @@ namespace HackerRankTasks
 
             RunBitwiseAND();
 
-            RunAbbreviation();*/
+            RunAbbreviation();
 
-            RunQueuesATaleOfTwoStacks();
+            RunQueuesATaleOfTwoStacks();*/
+
+            RunInsertingANodeIntoASortedDoublyLinkedList();
+        }
+
+        static void RunInsertingANodeIntoASortedDoublyLinkedList()
+        {
+            var testsAmount = Convert.ToInt32(Console.ReadLine());
+            var linkedList = new DoublyLinkedList();
+
+            for (var i = 0; i < testsAmount; i++)
+            {
+
+                var linkedListCount = Convert.ToInt32(Console.ReadLine());
+
+                for (var j = 0; j < linkedListCount; j++)
+                {
+                    var linkedListItem = Convert.ToInt32(Console.ReadLine());
+                    linkedList.InsertNode(linkedListItem);
+                }
+
+                var data = Convert.ToInt32(Console.ReadLine());
+
+                DoublyLinkedListNode resultLinkedListNode = linkedList.InsertIntoSortedList(linkedList.head, data);
+
+                linkedList.PrintDoublyLinkedList(resultLinkedListNode, " ");
+                Console.WriteLine();
+            }
         }
 
         static void RunQueuesATaleOfTwoStacks()

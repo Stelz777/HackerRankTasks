@@ -1238,5 +1238,42 @@ namespace XUnitTestHackerRank
             }
         }
 
+        public class UnitTestFindTheNearestClone
+        {
+            [Theory]
+            [InlineData(4, new int[] { 1, 1, 4 }, new int[] { 2, 3, 2 }, new long[] { 1, 2, 1, 1 }, 1, 1)]
+            [InlineData(4, new int[] { 1, 1, 4 }, new int[] { 2, 3, 2 }, new long[] { 1, 2, 3, 4 }, 2, -1)]
+            [InlineData(5, new int[] { 1, 1, 2, 3 }, new int[] { 2, 3, 4, 5 }, new long[] { 1, 2, 3, 3, 2 }, 2, 3)]
+            public void FindRouteLengthToNodeWithTheSameColorTheory(int nodesAmount, int[] nodesSource, int[] nodesTarget, long[] colors, int colorToMatch, int expectedResult)
+            {
+                var graphWorker = new HackerRankTasks.GraphWorker();
+                int result = graphWorker.FindRouteLengthToNodeWithTheSameColor(nodesAmount, nodesSource, nodesTarget, colors, colorToMatch);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestInsertingANodeIntoASortedDoublyLinkedList
+        {
+            [Fact]
+            public void InsertIntoSortedListFact()
+            {
+                var doublyLinkedList = new HackerRankTasks.Linked_Lists.DoublyLinkedList();
+                doublyLinkedList.InsertNode(1);
+                doublyLinkedList.InsertNode(3);
+                doublyLinkedList.InsertNode(4);
+                doublyLinkedList.InsertNode(10);
+                HackerRankTasks.Linked_Lists.DoublyLinkedListNode result = doublyLinkedList.InsertIntoSortedList(doublyLinkedList.head, 5);
+                var expectedList = new HackerRankTasks.Linked_Lists.DoublyLinkedList();
+                expectedList.InsertNode(1);
+                expectedList.InsertNode(3);
+                expectedList.InsertNode(4);
+                expectedList.InsertNode(5);
+                expectedList.InsertNode(10);
+                HackerRankTasks.Linked_Lists.DoublyLinkedListNode expectedResult = expectedList.head;
+                Assert.Equal(expectedResult.ToString(), result.ToString());
+            }
+
+        }
+
     }
 }
