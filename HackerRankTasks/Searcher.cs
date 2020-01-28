@@ -130,5 +130,30 @@ namespace HackerRankTasks
             }
         }
         #endregion
+
+        #region Pairs
+        //https://www.hackerrank.com/challenges/pairs/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=search
+        public int CalculatePairsAmount(int targetValue, int[] numbers)
+        {
+            Array.Sort(numbers);
+            var result = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                for (int j = i + 1; j < numbers.Length; j++)
+                {
+                    int difference = Math.Abs(numbers[i] - numbers[j]);
+                    if (difference > targetValue)
+                    {
+                        break;
+                    }
+                    if (difference == targetValue)
+                    {
+                        result++;
+                    }
+                }
+            }
+            return result;
+        }
+        #endregion
     }
 }

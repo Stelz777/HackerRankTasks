@@ -208,5 +208,90 @@ namespace HackerRankTasks
             node.neighbors.Add(nodesGroup[nodeIdToAdd]);
         }
         #endregion
+
+        #region DFSConnectedCellInAGrid
+        //https://www.hackerrank.com/challenges/ctci-connected-cell-in-a-grid/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=graphs
+        public void GenerateGroup(int[][] grid, bool[][] areVisited, ref int currentSize, int cellX, int cellY)
+        {
+            if (areVisited[cellX][cellY])
+            {
+                return;
+            }
+            else
+            {
+                areVisited[cellX][cellY] = true;
+                if (grid[cellX][cellY] == 0)
+                {
+                    return;
+                }
+                else
+                {
+                    currentSize++;
+                    if (cellY - 1 >= 0)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX, cellY - 1);
+                    }
+                    if (cellX + 1 < grid.Length && cellY - 1 >= 0)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX + 1, cellY - 1);
+                    }
+                    if (cellX + 1 < grid.Length)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX + 1, cellY);
+                    }
+                    if (cellX + 1 < grid.Length && cellY + 1 < grid[cellX].Length)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX + 1, cellY + 1);
+                    }
+                    if (cellY + 1 < grid[cellX].Length)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX, cellY + 1);
+                    }
+                    if (cellX - 1 >= 0 && cellY + 1 < grid[cellX].Length)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX - 1, cellY + 1);
+                    }
+                    if (cellX - 1 >= 0)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX - 1, cellY);
+                    }
+                    if (cellX - 1 >= 0 && cellY - 1 >= 0)
+                    {
+                        GenerateGroup(grid, areVisited, ref currentSize, cellX - 1, cellY - 1);
+                    }
+                }
+            }
+        }
+        
+        public int CalculateMaxRegion(int[][] grid)
+        {
+            var areVisited = new bool[grid.Length][];
+            InitAreVisited(areVisited, grid);
+            var groups = new List<int>();
+            var currentSize = 0;
+            for (var i = 0; i < grid.Length; i++)
+            {
+                for (var j = 0; j < grid[i].Length; j++)
+                {
+                    GenerateGroup(grid, areVisited, ref currentSize, i, j);
+                    groups.Add(currentSize);
+                    currentSize = 0;
+                }
+            }
+            return groups.Max();
+        }
+
+        public void InitAreVisited(bool[][] areVisited, int[][] grid)
+        {
+            for (var i = 0; i < areVisited.Length; i++)
+            {
+                areVisited[i] = new bool[grid[i].Length];
+                for (var j = 0; j < areVisited[i].Length; j++)
+                {
+                    areVisited[i][j] = false;
+                }
+            }
+        }
+        #endregion
     }
 }

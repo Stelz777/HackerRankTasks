@@ -1305,6 +1305,111 @@ namespace XUnitTestHackerRank
 
         }
 
+        public class UnitTestFraudulentActivityNotifications
+        {
+            [Theory]
+            [InlineData(new int[] { 2, 3, 4, 2, 3, 6, 8, 4, 5 }, 5, 2)]
+            [InlineData(new int[] { 1, 2, 3, 4, 4 }, 4, 0)]
+            public void CountDaysWhenNotificationsWereSentTheory(int[] spentMoney, int trailingDays, int expectedResult)
+            {
+                var sorter = new HackerRankTasks.Sorter();
+                int result = sorter.CountDaysWhenNotificationsWereSent(spentMoney, trailingDays);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestSherlockAndValidString
+        {
+            [Theory]
+            [InlineData("aabbcd", "NO")]
+            [InlineData("aabbccddeefghi", "NO")]
+            [InlineData("abcdefghhgfedecba", "YES")]
+            [InlineData("ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidbibaeaagaeeigffcebfbaieggabcfbiiedcabfihchdfabifahcbhagccbdfifhghcadfiadeeaheeddddiecaicbgigccageicehfdhdgafaddhffadigfhhcaedcedecafeacbdacgfgfeeibgaiffdehigebhhehiaahfidibccdcdagifgaihacihadecgifihbebffebdfbchbgigeccahgihbcbcaggebaaafgfedbfgagfediddghdgbgehhhifhgcedechahidcbchebheihaadbbbiaiccededchdagfhccfdefigfibifabeiaccghcegfbcghaefifbachebaacbhbfgfddeceababbacgffbagidebeadfihaefefegbghgddbbgddeehgfbhafbccidebgehifafgbghafacgfdccgifdcbbbidfifhdaibgigebigaedeaaiadegfefbhacgddhchgcbgcaeaieiegiffchbgbebgbehbbfcebciiagacaiechdigbgbghefcahgbhfibhedaeeiffebdiabcifgccdefabccdghehfibfiifdaicfedagahhdcbhbicdgibgcedieihcichadgchgbdcdagaihebbabhibcihicadgadfcihdheefbhffiageddhgahaidfdhhdbgciiaciegchiiebfbcbhaeagccfhbfhaddagnfieihghfbaggiffbbfbecgaiiidccdceadbbdfgigibgcgchafccdchgifdeieicbaididhfcfdedbhaadedfageigfdehgcdaecaebebebfcieaecfagfdieaefdiedbcadchabhebgehiidfcgahcdhcdhgchhiiheffiifeegcfdgbdeffhgeghdfhbfbifgidcafbfcd", "YES")]
+            public void CheckValidityTheory(string input, string expectedResult)
+            {
+                var stringManipulator = new HackerRankTasks.StringManipulator();
+                string result = stringManipulator.CheckValidity(input);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestGreedyFlorist
+        {
+            [Theory]
+            [InlineData(3, new int[] { 2, 5, 6 }, 13)]
+            [InlineData(2, new int[] { 2, 5, 6 }, 15)]
+            [InlineData(3, new int[] { 1, 3, 5, 7, 9 }, 29)]
+            public void GetMinimumCostTheory(int friendsAmount, int[] prices, int expectedResult)
+            {
+                var greedyWorker = new HackerRankTasks.GreedyWorker();
+                int result = greedyWorker.GetMinimumCost(friendsAmount, prices);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestPairs
+        {
+            [Theory]
+            [InlineData(2, new int[] { 1, 5, 3, 4, 2 }, 3)]
+            public void CalculatePairsAmountTheory(int targetValue, int[] numbers, int expectedResult)
+            {
+                var searcher = new HackerRankTasks.Searcher();
+                int result = searcher.CalculatePairsAmount(targetValue, numbers);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestCandies
+        {
+            [Theory]
+            [InlineData(3, new int[] { 1, 2, 2 }, 4L)]
+            [InlineData(10, new int[] { 2, 4, 2, 6, 1, 7, 8, 9, 2, 1 }, 19L)]
+            [InlineData(8, new int[] { 2, 4, 3, 5, 2, 6, 4, 5 }, 12L)]
+            public void CalculateMinimumCandiesToBuyTheory(int studentsAmount, int[] ratings, long expectedResult)
+            {
+                var dynamicProgrammer = new HackerRankTasks.DynamicProgrammer();
+                long result = dynamicProgrammer.CalculateMinimumCandiesToBuy(studentsAmount, ratings);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestLargestRectangle
+        {
+            [Theory]
+            [InlineData(new int[] { 1, 2, 3, 4, 5 }, 9L)]
+            public void CalculateLargestRectangleTheory(int[] height, long expectedResult)
+            {
+                var stackWorker = new HackerRankTasks.StackWorker();
+                long result = stackWorker.CalculateLargestRectangle(height);
+                Assert.Equal(expectedResult, result);
+            }
+        }
+
+        public class UnitTestDFSConnectedCellInAGrid
+        {
+            [Fact]
+            public void CalculateMaxRegionFact()
+            {
+                var graphWorker = new HackerRankTasks.GraphWorker();
+                var grid = new int[][]
+                {
+                    new int[] { 1, 1, 0, 0 },
+                    new int[] { 0, 1, 1, 0 },
+                    new int[] { 0, 0, 1, 0 },
+                    new int[] { 1, 0, 0, 0 }
+                };
+                var expectedResult = 5;
+                int result = graphWorker.CalculateMaxRegion(grid);
+                Assert.Equal(expectedResult, result);
+
+            }
+        }
+
+
+
+
+
+
 
 
     }

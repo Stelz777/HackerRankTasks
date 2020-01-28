@@ -62,5 +62,29 @@ namespace HackerRankTasks
             return result;
         }
         #endregion
+
+        #region GreedyFlorist
+        //https://www.hackerrank.com/challenges/greedy-florist/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=greedy-algorithms
+        public int GetMinimumCost(int friendsAmount, int[] prices)
+        {
+            var result = 0;
+            Array.Sort(prices);
+            int currentFlower = prices.Length - 1;
+            var currentMultiplier = 1;
+            while (currentFlower >= 0)
+            {
+                for (int i = 0; i < friendsAmount; i++)
+                {
+                    if (currentFlower >= 0)
+                    {
+                        result += prices[currentFlower] * currentMultiplier;
+                        currentFlower--;
+                    }
+                }
+                currentMultiplier++;
+            }
+            return result;
+        }
+        #endregion
     }
 }

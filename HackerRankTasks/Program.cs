@@ -128,9 +128,29 @@ namespace HackerRankTasks
 
             RunInsertingANodeIntoASortedDoublyLinkedList();
 
-            RunRecursionDavisStaircase();*/
+            RunRecursionDavisStaircase();
 
-            RunSherlockAndAnagrams();
+            RunSherlockAndAnagrams();*/
+
+            RunDFSConnectedCellInAGrid();
+        }
+
+        static void RunDFSConnectedCellInAGrid()
+        {
+            var matrixRows = Convert.ToInt32(Console.ReadLine());
+
+            int matrixColumns = Convert.ToInt32(Console.ReadLine());
+
+            var grid = new int[matrixRows][];
+
+            for (var i = 0; i < matrixRows; i++)
+            {
+                grid[i] = Array.ConvertAll(Console.ReadLine().Split(' '), gridTemp => Convert.ToInt32(gridTemp));
+            }
+            var graphWorker = new HackerRankTasks.GraphWorker();
+            int result = graphWorker.CalculateMaxRegion(grid);
+
+            Console.WriteLine(result);
         }
 
         static void RunSherlockAndAnagrams()

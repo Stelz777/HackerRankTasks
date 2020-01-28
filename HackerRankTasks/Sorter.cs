@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HackerRankTasks
@@ -52,6 +53,48 @@ namespace HackerRankTasks
             }
             return result;
         }
+        #endregion
+
+        #region FraudlentActivityNotifications
+        //https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
+        public int CountDaysWhenNotificationsWereSent(int[] spentMoney, int trailingDays)
+        {
+            var currentSpent = new List<int>();
+            var notificationsCounter = 0;
+            for (int i = 0; i < spentMoney.Length; i++)
+            {
+                if (i < trailingDays)
+                {
+                    currentSpent.Add(spentMoney[i]);
+                    continue;
+                }
+                else
+                {
+                    currentSpent.Sort();
+                    double median = FindMedian(currentSpent);
+                    currentSpent.Add(spentMoney[i]);
+                    
+                    if (spentMoney[i] >= 2 * median)
+                    {
+                        notificationsCounter++;
+                    }
+                }
+            }
+            return notificationsCounter;
+        }
+
+        public double FindMedian(List<int> workingCopy)
+        {
+            if (workingCopy.Count % 2 == 0)
+            {
+                return workingCopy[workingCopy.Count / 2];
+            }
+            else
+            {
+                return (double)(workingCopy[workingCopy.Count / 2] + workingCopy[workingCopy.Count / 2 - 1]) / (double) 2;
+            }
+        }
+
         #endregion
     }
 }

@@ -39,5 +39,55 @@ namespace HackerRankTasks
             return result;
         }
         #endregion
+
+        #region SherlockAndValidString
+        //https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        public string CheckValidity(string input)
+        {
+            var lettersAndCounters = CreateDictionaryLetterToCounter(input);
+            bool oneIsMore = false;
+            int initialValue = lettersAndCounters.Values.ElementAt(0);
+            for (int i = 1; i < lettersAndCounters.Count; i++)
+            {
+                int currentValue = lettersAndCounters.Values.ElementAt(i);
+                if (currentValue == initialValue)
+                {
+                    continue;
+                }
+                else if (currentValue == 1 && !oneIsMore)
+                {
+                    oneIsMore = true;
+                }
+                else if (Math.Abs(currentValue - initialValue) == 1 && !oneIsMore)
+                {
+                    oneIsMore = true;
+                }
+                else
+                {
+                    return "NO";
+                }
+                
+            }
+            return "YES";
+        }
+
+        public Dictionary<char, int> CreateDictionaryLetterToCounter(string input)
+        {
+            var result = new Dictionary<char, int>();
+            foreach (var character in input)
+            {
+                if (result.ContainsKey(character))
+                {
+                    result[character]++;
+                }
+                else
+                {
+                    result.Add(character, 1);
+                }
+            }
+            return result;
+        }
+
+        #endregion
     }
 }

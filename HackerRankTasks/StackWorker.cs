@@ -106,5 +106,83 @@ namespace HackerRankTasks
             }
         }
         #endregion
+
+        #region CastleOnTheGrid
+        //https://www.hackerrank.com/challenges/castle-on-the-grid/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=stacks-queues
+        public int CalculateMinimumMovesToReachGoal(string[] grid, int startX, int startY, int goalX, int goalY)
+        {
+            return 0;
+        }
+        #endregion
+
+        #region LargestRectangle
+        //https://www.hackerrank.com/challenges/largest-rectangle/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=stacks-queues
+        public void StoreHeightCount(Dictionary<int, int> heights, int height, int count)
+        {
+            if (heights.ContainsKey(height))
+            {
+                heights[height] += count;
+            }
+            else
+            {
+                heights.Add(height, count);
+            }
+        }
+        
+        public long CalculateLargestRectangle(int[] height)
+        {
+            var current = new Stack<int>();
+            var heights = new Dictionary<int, int>();
+            int maxRectangle = 0;
+
+            if (height.Length > 0)
+            {
+                current.Push(height[0]);
+                StoreHeightCount(heights, height[0], 1);
+            }
+
+            for (var i = 1; i < height.Length; i++)
+            {
+                int peek = current.Peek();
+                if (peek > height[i])
+                {
+                    int count = 0;
+                    while (current.Count != 0 && peek > height[i])
+                    {
+                        current.Pop();
+                        count = heights[peek];
+                        if (count * peek > maxRectangle)
+                        {
+                            maxRectangle = count * peek;
+                        }
+                        heights[peek] = 0;
+                        peek = current.Count == 0 ? 0 : current.Peek();
+                    }
+                    if (peek < height[i])
+                    {
+                        current.Push(height[i]);
+                        StoreHeightCount(heights, height[i], count);
+                    }
+                }
+                else if (peek < height[i])
+                {
+                    current.Push(height[i]);
+                }
+                foreach (var uniqueHeight in current)
+                {
+                    StoreHeightCount(heights, uniqueHeight, 1);
+                }
+            }
+            foreach (var uniqueHeight in heights.Keys)
+            {
+                int temp = heights[uniqueHeight] * uniqueHeight;
+                if (temp > maxRectangle)
+                {
+                    maxRectangle = temp;
+                }
+            }
+            return maxRectangle;
+        }
+        #endregion
     }
 }

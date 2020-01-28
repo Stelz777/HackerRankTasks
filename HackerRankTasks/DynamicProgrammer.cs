@@ -114,5 +114,33 @@ namespace HackerRankTasks
         }
 
         #endregion
+
+        #region Candies
+        //https://www.hackerrank.com/challenges/candies/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dynamic-programming
+        public long CalculateMinimumCandiesToBuy(int studentsAmount, int[] ratings)
+        {
+            var candies = new long[ratings.Length];
+            candies[0] = 1L;
+            for (int i = 1; i < ratings.Length; i++)
+            {
+                if (ratings[i] > ratings[i - 1])
+                {
+                    candies[i] = candies[i - 1] + 1;
+                }
+                else
+                {
+                    candies[i] = 1L;
+                }
+            }
+            for (int i = ratings.Length - 2; i >= 0; i--)
+            {
+                if (ratings[i] > ratings[i + 1] && candies[i] <= candies[i + 1])
+                {
+                    candies[i] = candies[i + 1] + 1;
+                }
+            }
+            return candies.Sum();
+        }
+        #endregion
     }
 }
